@@ -2,14 +2,21 @@
   "name": "miniprogram-ts-less-quickstart",
   "version": "1.0.0",
   "description": "",
-  "scripts": {
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
-  "license": "",
-  "dependencies": {
-  },
+  "license": "ISC",
+  "dependencies": {},
   "devDependencies": {
     "miniprogram-api-typings": "^2.8.3-1"
-  }
+  },
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maolovecoding/maoMusic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maolovecoding/maoMusic/issues"
+  },
+  "homepage": "https://github.com/maolovecoding/maoMusic#readme"
 }

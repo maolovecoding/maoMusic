@@ -8,7 +8,7 @@
   "libVersion": "2.20.1",
   "projectname": "maoMusic",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": true,
     "postcss": true,
@@ -16,7 +16,7 @@
     "minified": true,
     "newFeature": false,
     "coverView": true,
-    "nodeModules": false,
+    "nodeModules": true,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
@@ -41,12 +41,12 @@
     "packNpmRelationList": [],
     "minifyWXSS": true,
     "disableUseStrict": false,
+    "minifyWXML": true,
     "showES6CompileOption": false,
     "useCompilerPlugins": [
       "typescript",
       "less"
-    ],
-    "minifyWXML": true
+    ]
   },
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},

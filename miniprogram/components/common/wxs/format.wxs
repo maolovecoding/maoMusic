@@ -1,0 +1,41 @@
+/**
+ * 播放量超过五位数 转为 x.x万
+ * @param viewCount 播放量 viewCount
+ */
+function formatPlayCount(viewCount) {
+  var count = parseInt(viewCount);
+  if (count > 100000000) {
+    // tofixed 保留几位小数
+    return (count / 100000000).toFixed(1) + "亿";
+  } else if (count > 10000) {
+    return (count / 10000).toFixed(2) + "万";
+  } else {
+    return viewCount;
+  }
+}
+
+/**
+ * 小于 10 不足两位 在前面补0
+ * @param time {string} 时间
+ */
+function padStartZero(time) {
+  return ("00" + time).slice(time.length);
+}
+
+/**
+ * 转时间戳为格式为 分:秒
+ * @param duration 时间戳 毫秒
+ */
+function formatDuration(duration) {
+  var time = duration / 1000;
+  // 分钟
+  var minus = Math.floor(time / 60);
+//  秒
+  var seconds = (time % 60);
+  return padStartZero(minus + "") + ":" + padStartZero(seconds + "");
+}
+
+module.exports = {
+  formatPlayCount: formatPlayCount,
+  formatDuration: formatDuration
+}

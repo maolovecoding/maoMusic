@@ -1,0 +1,15 @@
+<!--components/video-list-topMv/index.wxml-->
+<wxs src="../common/wxs/format.wxs" module="format"></wxs>
+        <!-- 封面 -->
+<view class="container"  bind:tap="videoItemClick" data-id="{{topMv.id}}">
+    <view class="cover">
+        <image src="{{topMv.cover}}" class="album" mode="widthFix"/>
+        <view class="info">
+            <!-- 播放量 时长 -->
+            <view class="count">{{format.formatPlayCount(topMv.playCount)}}</view>
+            <text class="duration">{{format.formatDuration(topMv.mv.videos[0].duration)}}</text>
+        </view>
+    </view>
+    <!-- 视频 作者 名称 -->
+    <text class="video-info">{{topMv.name}} - {{topMv.artistName}}</text>
+</view>

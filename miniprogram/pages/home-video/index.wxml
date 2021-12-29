@@ -1,0 +1,7 @@
+<!--pages/home-video/index.wxml-->
+<view class="container">
+    <block wx:for="{{topMvs}}" wx:key="id">
+        <!-- 视频列表项 -->
+        <m-video-item bind:getVideoId="gotoVideo" top-mv="{{item}}" class="video-item"></m-video-item>
+    </block>
+</view>

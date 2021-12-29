@@ -1,0 +1,19 @@
+/**
+ * 播放量超过五位数 转为 x.x万
+ * @param viewCount 播放量 viewCount
+ */
+function formatPlayCount(viewCount) {
+  var count = parseInt(viewCount);
+  if (count > 100000000) {
+    // tofixed 保留几位小数
+    return (count / 100000000).toFixed(1).toString();
+  } else if (count > 10000) {
+    return (count / 10000).toFixed(2).toString();
+  } else {
+    return viewCount;
+  }
+}
+
+module.exports = {
+  formatPlayCount: formatPlayCount
+}
