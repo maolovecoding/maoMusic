@@ -1,8 +1,11 @@
-import {Video} from "../../service/video";
+// import {Video} from "../../service/video";
 // @ts-ignore
 import {EventCallback} from "/typings/types/wx/index";
 
-const video = new Video();
+// const video = new Video();
+
+import video from "../../service/video";
+
 // pages/home-video/index.ts
 Page({
 

@@ -31,14 +31,14 @@
 }
 
 .count {
-    padding-left: 30rpx;
+    padding-left: 34rpx;
 }
 
 .info .count::before {
     content: "";
     position: absolute;
-    left: 2rpx;
-    top: 4rpx;
+    left: 4rpx;
+    top: 6rpx;
     width: 30rpx;
     height: 24rpx;
     background-size: cover;

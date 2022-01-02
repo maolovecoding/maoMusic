@@ -1,12 +1,14 @@
 {
   "name": "miniprogram-ts-less-quickstart",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "本次我使用的小程序基础库是版本是：2.20.1。最好版本相差不大。",
   "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "@vant/weapp": "^1.10.0"
+  },
   "devDependencies": {
     "miniprogram-api-typings": "^2.8.3-1"
   },

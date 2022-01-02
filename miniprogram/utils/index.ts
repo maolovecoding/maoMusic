@@ -6,9 +6,13 @@
  */
 
 import {promisic} from "./promisic";
+import QueryRect from "./query-rect";
+import Throttle from "./throttle";
 
 export {
-  promisic
+  promisic,
+  QueryRect,
+  Throttle
 }
 
 

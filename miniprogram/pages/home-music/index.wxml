@@ -1,2 +1,28 @@
 <!--pages/home-music/index.wxml-->
-<text>pages/home-music/index.wxml</text>
+<vant-search
+        background="#fafafa"
+        placeholder="搜索您想听的音乐"
+        shape="round"
+        field-class="input-background"
+        disabled
+        bind:click-input="searchClick"
+/>
+
+        <!--轮播图 ；轮播图高度动态获取-->
+<swiper
+        style="height:{{swiperHeight}}px"
+        class="swiper" indicator-dots
+        indicator-color="#ccc"
+        indicator-active-color="#aaa" autoplay interval="3000"
+        circular>
+    <block wx:for="{{banners}}" wx:key="encodeId">
+        <swiper-item class="swiper-item">
+            <!-- 监听图片加载完毕事件 -->
+            <image src="{{item.imageUrl}}"
+                   class="swiper-image"
+                   mode="widthFix"
+                   bindload="imgOnLoad"
+            />
+        </swiper-item>
+    </block>
+</swiper>

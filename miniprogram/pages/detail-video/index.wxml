@@ -1,2 +1,5 @@
 <!--pages/detail-video/index.wxml-->
-<text>pages/detail-video/index.wxml</text>
+<video src="{{mvInfo.url}}" autoplay loop></video>
+<!--视频详情-->
+<text>{{mvDetail.artistName}}</text>
+

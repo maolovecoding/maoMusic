@@ -22,13 +22,21 @@ export class Video {
    *          area： 歌曲地区
    *          offset: 偏移数量 用于分页
    */
-  static _TOP_MV = "top/mv";
+  private static TOP_MV = "top/mv";
+  /**
+   * mv的地址
+   * @private
+   */
+  private static MV_URL = "mv/url";
+  /**
+   * mv的详情数据
+   * @private
+   */
+  private static MV_DETAIL = "mv/detail";
+  private static RELATED_MV = "related/allvideo";
 
-  _topMvs = [];
-
-  get topMvs(): any[] {
-    return this._topMvs;
-  }
+  //@ts-ignore
+  private topMvs = [];
 
   /**
    * 发起任意请求 请求地址调用方指定
@@ -44,9 +52,52 @@ export class Video {
    */
   getTopMV(data: TopMVDataType): Promise<any> {
     return Http.request({
-      url: Video._TOP_MV,
-      method: "GET",
+      url: Video.TOP_MV,
       data
     });
   }
+
+  /**
+   * 获取mv的url地址
+   * @param id mv的唯一标识
+   */
+  getMvUrl(id: string): Promise<any> {
+    return Http.request({
+      url: Video.MV_URL,
+      data: {
+        id
+      }
+    });
+  }
+
+  /**
+   * 获取mv的详情数据
+   * @param mvid mv的唯一标识
+   */
+  getMvDetail(mvid: string): Promise<any> {
+    return Http.request({
+      url: Video.MV_DETAIL,
+      data: {
+        mvid
+      }
+    });
+  }
+
+  /**
+   * 获取mv的相关联的mv数据
+   * @param id
+   */
+  getRelatedMv(id: string): Promise<any> {
+    return Http.request({
+      url: Video.RELATED_MV,
+      data: {
+        id
+      }
+    });
+  }
 }
+
+/**
+ * 视频请求对象可全局唯一
+ */
+export default new Video;
