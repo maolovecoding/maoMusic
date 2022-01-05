@@ -1,0 +1,43 @@
+/* components/recommend-song/index.wxss */
+.recommend-song {
+  height: 125rpx;
+  display: flex;
+  flex-direction: row;
+  padding: 10rpx 0;
+
+  .cover {
+    height: 100%;
+    width: 150rpx;
+    border-radius: 12rpx;
+  }
+
+  .container {
+    margin-left: 20rpx;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .name {
+        font-size: 32rpx;
+        font-weight: 500;
+        margin-bottom: 16rpx;
+      }
+
+      .source {
+        font-size: 24rpx;
+        color: #ccc;
+      }
+    }
+
+    .arrow {
+      height: 48rpx;
+      width: 48rpx;
+    }
+  }
+}

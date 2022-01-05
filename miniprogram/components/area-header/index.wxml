@@ -1,0 +1,14 @@
+<!--components/area-header/index.wxml-->
+<view class="header">
+    <!-- 标题  -->
+    <view class="title">{{title}}</view>
+    <view class="slot">
+        <slot></slot>
+    </view>
+    <!-- 插槽不传递值的时候，则作为默认值显示 默认情况下 我们不让其显示 -->
+    <view class="right">
+        <text class="right-title">{{rightText}}</text>
+        <!-- 图标 -->
+        <image class="icon" src="../common/images/icon/arrow-right.png"/>
+    </view>
+</view>

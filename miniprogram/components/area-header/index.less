@@ -1,0 +1,42 @@
+/* components/area-header/index.wxss */
+.header {
+  height: 80rpx;
+  padding: 4rpx 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    color: #000;
+    font-weight: bold;
+    font-size: 34rpx;
+  }
+
+  // 默认插槽是否显示 如果默认插槽组件内是空的，也就是没有传组件，此时<slot/>
+  // 标签在渲染的时候，会消失，则slot标签的父容器此时为空
+  .slot:empty + .right {
+    // 插槽是空 则显示默认插槽
+    display: block;
+  }
+
+  .right {
+    // 默认情况 我们认为插槽会传值 则不显示
+    display: none;
+
+    .right-title {
+      font-size: 28rpx;
+      color: #bbb;
+      line-height: 80rpx;
+      text-align: center;
+    }
+
+    .icon {
+      // 图片 文字对齐方式
+      vertical-align: middle;
+      height: 48rpx;
+      width: 48rpx;
+    }
+  }
+}

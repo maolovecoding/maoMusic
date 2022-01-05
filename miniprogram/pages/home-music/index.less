@@ -1,11 +1,29 @@
 /* pages/home-music/index.wxss */
 
+page {
+  padding: 0 20rpx;
+  //box-sizing: border-box;
+}
+
 /*更改搜索框的背景颜色*/
 .input-background {
   background-color: #fff;
 }
 
+// 去除搜索框的内边距
+.custom-class {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+// 轮播图样式
 .swiper {
+  // 圆角 TODO 设置在这里 图片边框有圆角 但是图片滑动的时候，不会出现圆角
+  border-radius: 10rpx;
+  overflow: hidden;
+  // 解决手机系统 边框下圆角不显示，或者不生效问题
+  transform: translateY(0);
+
   .swiper-item {
     display: flex;
 

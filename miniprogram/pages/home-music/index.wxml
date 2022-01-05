@@ -4,6 +4,7 @@
         placeholder="搜索您想听的音乐"
         shape="round"
         field-class="input-background"
+        custom-class="custom-class"
         disabled
         bind:click-input="searchClick"
 />
@@ -26,3 +27,17 @@
         </swiper-item>
     </block>
 </swiper>
+
+        <!-- 推荐歌曲 -->
+<view class="recommend-song">
+    <m-area-header title="推荐歌曲">
+        <!-- 插槽显示的内容 -->
+    </m-area-header>
+    <!-- 歌曲列表 -->
+    <view class="song-list">
+<!--  推荐歌曲 -->
+        <block wx:for="{{recommendSongs}}" wx:key="id">
+            <m-recommend-song recommendSong="{{item}}"/>
+        </block>
+    </view>
+</view>

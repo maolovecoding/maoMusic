@@ -2,9 +2,10 @@
 import {EventCallback} from "/typings/types/wx/index";
 import music from "../../service/music";
 import {QueryRect, Throttle} from "../../utils/index"
+import rankingStore from "../../store/ranking-store"
 // 查询图片高度的函数 转为节流函数
 //@ts-ignore
-const ThrottleQueryRect = Throttle(QueryRect,1000);
+const ThrottleQueryRect = Throttle(QueryRect, 1000);
 
 // pages/home-music/index.ts
 Page({
@@ -16,6 +17,8 @@ Page({
     // 轮播图高度 网络图片加载完成以后 才能获取到在当前机型下实际的图片大小
     swiperHeight: 0,
     banners: Array,
+    // 推荐歌曲
+    recommendSongs: []
   },
 
   /**
@@ -23,6 +26,16 @@ Page({
    */
   onLoad() {
     this.getPageData();
+    // 发起共享数据的请求
+    rankingStore.dispatch("getRankingDataAction");
+    // 获取共享数据
+    rankingStore.onState("hotRanking", (val) => {
+      this.setData({
+        // 推荐歌曲 只显示前六条数据
+        recommendSongs: val?.tracks?.slice(0, 6)
+      });
+      console.log(this.data.recommendSongs);
+    });
   },
 
   /**
