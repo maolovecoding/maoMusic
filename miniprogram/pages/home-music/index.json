@@ -2,6 +2,8 @@
   "usingComponents": {
     "m-area-header": "/components/area-header/index",
     "m-recommend-song": "/components/recommend-song/index",
+    "m-song-menu": "/components/song-menu/index",
+    "m-ranking-area-item": "/components/ranking-area-item/index",
     "vant-search": "@vant/weapp/search/index"
   }
 }

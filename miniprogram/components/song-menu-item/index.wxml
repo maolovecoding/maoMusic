@@ -1,0 +1,10 @@
+<!--components/song-menu-item/index.wxml-->
+<wxs src="../common/wxs/format.wxs" module="format"></wxs>
+<view class="song-menu-item">
+    <view class="top">
+        <image src="{{songMenuItem.coverImgUrl}}" class="cover" mode="widthFix"/>
+        <!-- 显示播放量  -->
+        <view class="play-counter">{{format.formatPlayCount(songMenuItem.playCount)}}</view>
+    </view>
+    <view class="bottom">{{songMenuItem.name}}</view>
+</view>

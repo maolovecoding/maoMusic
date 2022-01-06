@@ -29,15 +29,34 @@
 </swiper>
 
         <!-- 推荐歌曲 -->
-<view class="recommend-song">
+<view class="recommend-song" wx:if="{{recommendSongs.length > 0}}">
     <m-area-header title="推荐歌曲">
         <!-- 插槽显示的内容 -->
     </m-area-header>
     <!-- 歌曲列表 -->
     <view class="song-list">
-<!--  推荐歌曲 -->
+        <!--  推荐歌曲 -->
         <block wx:for="{{recommendSongs}}" wx:key="id">
             <m-recommend-song recommendSong="{{item}}"/>
+        </block>
+    </view>
+</view>
+
+        <!-- 热门歌单 -->
+<view class="hot-song-menu" wx:if="{{hotSongMenu}}">
+    <m-song-menu title="热门歌单" song-menu="{{hotSongMenu}}"/>
+</view>
+        <!-- 推荐歌单 -->
+<view class="hot-song-menu" wx:if="{{recommendSongMenu}}">
+    <m-song-menu title="推荐歌单" song-menu="{{recommendSongMenu}}"/>
+</view>
+
+        <!--巅峰榜-->
+<view class="ranking">
+    <m-area-header title="巅峰榜" show="{{false}}"></m-area-header>
+    <view class="ranking-list">
+        <block wx:for="{{rankings}}" wx:key="name">
+            <m-ranking-area-item item="{{item}}"/>
         </block>
     </view>
 </view>

@@ -1,6 +1,6 @@
 /**
  * @FileName: song-ranking.ts
- * @Description: 歌单排行 榜单
+ * @Description: 歌曲推荐
  * @author 毛毛
  * @date 2022-01-05 13:24
  */

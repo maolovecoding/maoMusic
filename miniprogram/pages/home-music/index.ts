@@ -1,8 +1,11 @@
-// @ts-ignore
-import {EventCallback} from "/typings/types/wx/index";
 import music from "../../service/music";
 import {QueryRect, Throttle} from "../../utils/index"
 import rankingStore from "../../store/ranking-store"
+import {SongMenu} from "../../service/song-menu"
+// 热门歌单请求
+const hotSongMenu = new SongMenu();
+// 推荐歌单请求
+const recommendSongMenu = new SongMenu("hot", "华语");
 // 查询图片高度的函数 转为节流函数
 //@ts-ignore
 const ThrottleQueryRect = Throttle(QueryRect, 1000);
@@ -18,7 +21,13 @@ Page({
     swiperHeight: 0,
     banners: Array,
     // 推荐歌曲
-    recommendSongs: []
+    recommendSongs: [],
+    // 热门歌单
+    hotSongMenu: [],
+    // 推荐歌单
+    recommendSongMenu: [],
+    // 榜单数据
+    rankings: {},
   },
 
   /**
@@ -34,36 +43,32 @@ Page({
         // 推荐歌曲 只显示前六条数据
         recommendSongs: val?.tracks?.slice(0, 6)
       });
-      console.log(this.data.recommendSongs);
+      // console.log(this.data.recommendSongs);
     });
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+    rankingStore.onState("newRanking", this.getRankingHandler(0));
+    rankingStore.onState("originRanking", this.getRankingHandler(2));
+    rankingStore.onState("upRanking", this.getRankingHandler(3));
   },
 
   getPageData() {
+    // 获取推荐歌曲数据
     music.getBanners().then(res => {
-      console.log(res.data.banners)
+      // console.log(res.data.banners)
       this.setData({
         banners: res.data.banners
+      });
+    });
+    //  获取 热门歌单数据
+    hotSongMenu.getSongMenu().then(res => {
+      console.log(res);
+      this.setData({
+        hotSongMenu: res.data.playlists
+      });
+    });
+    recommendSongMenu.getSongMenu().then(res => {
+      console.log(res);
+      this.setData({
+        recommendSongMenu: res.data.playlists
       });
     });
   },
@@ -86,6 +91,24 @@ Page({
     wx.navigateTo({
       url: "/pages/detail-search/index",
     });
+  },
+  /**
+   * 巅峰榜数据发发生改变的时候 进行数据监听的回调处理函数
+   * @param idx
+   */
+  getRankingHandler(idx: number) {
+    return (res) => {
+      if (Object.keys(res)?.length === 0) return;
+      const name = res?.name;
+      const coverImage = res?.coverImgUrl;
+      const playCount = res?.playCount;
+      const songList = res.tracks?.slice(0, 3);
+      // this.data.rankings.push({name, coverImage, songList})
+      const rankings = {...this.data.rankings, [idx]: {name, coverImage, songList, playCount}};
+      this.setData({
+        rankings
+      });
+    }
   },
 
   imgOnLoad_bak() {

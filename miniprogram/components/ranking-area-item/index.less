@@ -1,0 +1,54 @@
+/* components/ranking-area-item/index.wxss */
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding:20rpx 10rpx 0;
+  background-color: rgba(aa, aa, aa, 0.3);
+
+  .info {
+    .name {
+      font-weight: 600;
+      font-size: 36rpx;
+      margin-bottom: 10rpx;
+    }
+
+    .song-name {
+      font-size: 32rpx;
+      margin-bottom: 8rpx;
+      line-height: 32rpx;
+    }
+
+    .author-name {
+      font-size: 28rpx;
+      color: #aaa;
+    }
+  }
+
+  .cover {
+    width: 220rpx;
+    position: relative;
+
+    .image {
+      width: 100%;
+      border-radius: 6rpx;
+      background-size: cover;
+    }
+
+    .play-count {
+      position: absolute;
+      right: 6rpx;
+      bottom: 12rpx;
+      border-radius: 10rpx;
+      background: rgba(0, 0, 0, .5);
+      color: #fff;
+      font-size: 22rpx;
+      line-height: 30rpx;
+      padding: 6rpx;
+    }
+  }
+
+}

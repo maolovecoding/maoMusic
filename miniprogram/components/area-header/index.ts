@@ -10,6 +10,10 @@ Component({
     rightText: {
       type: String,
       value: "更多"
+    },
+    show: {
+      type: Boolean,
+      value: true
     }
   },
 
