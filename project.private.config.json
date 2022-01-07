@@ -29,6 +29,12 @@
           "pathName": "pages/home-music/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/detail-song/index",
+          "pathName": "pages/detail-song/index",
+          "query": "id=6945734224&type=menu",
+          "scene": null
         }
       ]
     }

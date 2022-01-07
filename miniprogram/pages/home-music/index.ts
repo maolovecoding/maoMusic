@@ -1,6 +1,6 @@
 import music from "../../service/music";
 import {QueryRect, Throttle} from "../../utils/index"
-import rankingStore from "../../store/ranking-store"
+import rankingStore, {rankingMap} from "../../store/ranking-store"
 import {SongMenu} from "../../service/song-menu"
 // 热门歌单请求
 const hotSongMenu = new SongMenu();
@@ -109,6 +109,29 @@ Page({
         rankings
       });
     }
+  },
+  /**
+   * 更多 按钮的点击
+   */
+  moreClick() {
+    this.navigateToDetailSongPage("hotRanking");
+  },
+  /**
+   * 巅峰榜 点击跳转整个榜单的详情
+   * @param e
+   */
+  rankingItemClick(e) {
+    console.log(e)
+    const idx = e.currentTarget.dataset.idx;
+    console.log(rankingMap[idx]);
+    this.navigateToDetailSongPage(rankingMap[idx]);
+  },
+
+  navigateToDetailSongPage(ranking: string) {
+    wx.navigateTo({
+      // 跳转详情页 类型：榜单排行
+      url: `/pages/detail-song/index?ranking=${ranking}&type=rank`
+    });
   },
 
   imgOnLoad_bak() {

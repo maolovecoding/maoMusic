@@ -1,9 +1,13 @@
 {
+  "usingComponents": {
+    "m-area-header": "/components/area-header/index"
+  },
   "pages": [
     "pages/home-music/index",
     "pages/home-video/index",
     "pages/detail-video/index",
-    "pages/detail-search/index"
+    "pages/detail-search/index",
+    "pages/detail-song/index"
   ],
   "entryPagePath": "pages/home-music/index",
   "window": {

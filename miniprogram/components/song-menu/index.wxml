@@ -4,7 +4,7 @@
 <scroll-view class="song-menu" scroll-x="true">
     <block wx:for="{{songMenu}}" wx:key="id">
         <view class="song-menu-item">
-            <m-song-menu-item song-menu-item="{{item}}"/>
+            <m-song-menu-item song-menu-item="{{item}}" bindtap="menuItemClick" data-id="{{item.id}}"/>
         </view>
     </block>
 </scroll-view>

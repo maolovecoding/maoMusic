@@ -25,5 +25,10 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {}
+  methods: {
+    onClick() {
+      // 点击了 更多 触发事件
+      this.triggerEvent("click");
+    }
+  }
 })

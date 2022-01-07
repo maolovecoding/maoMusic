@@ -22,5 +22,14 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {}
+  methods: {
+    // 歌单的点击 跳转到详情页
+    menuItemClick(e) {
+      const id = e.currentTarget.dataset.id;
+      wx.navigateTo({
+        //歌单类型
+        url: `/pages/detail-song/index?id=${id}&type=menu`
+      });
+    }
+  }
 })

@@ -30,7 +30,7 @@
 
         <!-- 推荐歌曲 -->
 <view class="recommend-song" wx:if="{{recommendSongs.length > 0}}">
-    <m-area-header title="推荐歌曲">
+    <m-area-header title="推荐歌曲" bind:click="moreClick">
         <!-- 插槽显示的内容 -->
     </m-area-header>
     <!-- 歌曲列表 -->
@@ -56,7 +56,7 @@
     <m-area-header title="巅峰榜" show="{{false}}"></m-area-header>
     <view class="ranking-list">
         <block wx:for="{{rankings}}" wx:key="name">
-            <m-ranking-area-item item="{{item}}"/>
+            <m-ranking-area-item item="{{item}}" bindtap="rankingItemClick" data-idx="{{index}}" />
         </block>
     </view>
 </view>

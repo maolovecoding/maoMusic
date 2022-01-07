@@ -6,7 +6,8 @@
  */
 import {HYEventStore} from 'hy-event-store'
 import songRanking from "../service/song-ranking";
-
+// 巅峰榜 榜单映射关系
+export const rankingMap = {0: "newRanking", 1: "hotRanking", 2: "originRanking", 3: "upRanking"};
 export default new HYEventStore({
   state: {
     // 新歌
@@ -20,7 +21,6 @@ export default new HYEventStore({
   },
   actions: {
     getRankingDataAction(ctx: any, options: any) {
-      const rankingMap = {0: "newRanking", 1: "hotRanking", 2: "originRanking", 3: "upRanking"};
       console.log(ctx, options);
       // idx : 0 新歌榜 1 热歌榜 2 原创榜 3 飙升榜
       // 热门歌曲

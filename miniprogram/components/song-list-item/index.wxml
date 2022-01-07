@@ -1,0 +1,11 @@
+<!--components/song-list-item/index.wxml-->
+<view class="container">
+    <view class="index">{{index}}</view>
+    <view class="info">
+        <view class="name">{{item.name}}</view>
+        <view class="source">
+            <image mode="widthFix" class="icon" src="../common/images/icon/sq_icon.png"/>
+            <text>{{item.ar[0].name}} {{item.alia[0] ? '·' + item.alia[0] : ''}}</text>
+        </view>
+    </view>
+</view>

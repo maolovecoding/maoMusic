@@ -1,2 +1,37 @@
 <!--pages/detail-search/index.wxml-->
-<text>pages/detail-search/index.wxml</text>
+<vant-search
+        background="#fafafa"
+        placeholder="搜索您想听的音乐"
+        shape="round"
+        field-class="input-background"
+        custom-class="custom-class"
+        bind:change="searchDetail"
+        value="{{searchKeyword}}"
+/>
+
+        <!--展示热门搜索的 热词-->
+<view class="hot" wx:if="{{!searchKeyword}}">
+    <m-area-header title="热门搜索" show="{{false}}"/>
+    <view class="keywords">
+        <block wx:for="{{hotKeywords}}" wx:key="first">
+            <text class="tag">
+                {{item.first}}
+            </text>
+        </block>
+    </view>
+</view>
+        <!--搜索建议-->
+<view class="suggest" wx:else>
+    <view class="title">搜索 "{{searchKeyword}}"</view>
+    <view class="suggest-list">
+        <block wx:for="{{suggestSongs}}" wx:key="keyword">
+            <view class="item">
+                <image class="icon" mode="widthFix" src="/assets/images/icons/search_icon.png"/>
+                <text class="text">{{item.keyword}}</text>
+            </view>
+        </block>
+    </view>
+</view>
+
+        <!--搜索结果-->
+<view class=""></view>

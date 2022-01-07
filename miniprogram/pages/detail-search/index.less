@@ -1,0 +1,64 @@
+/* pages/detail-search/index.wxss */
+page {
+  padding: 0 20rpx;
+}
+
+/*更改搜索框的背景颜色*/
+.input-background {
+  background-color: #fff;
+}
+
+// 去除搜索框的内边距
+.custom-class {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.hot {
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -30rpx;
+
+    .tag {
+      font-weight: 500;
+      font-size: 26rpx;
+      padding: 4rpx 20rpx;
+      margin: 0 6rpx;
+    }
+
+    .tag:first-child {
+      font-size: 28rpx;
+      color: #67d25d;
+    }
+  }
+}
+
+// 搜索建议
+.suggest {
+  .title{
+    color: #53d22d;
+    font-weight: 600;
+  }
+  .suggest-list {
+    margin-top: 20rpx;
+    display: flex;
+    flex-direction: column;
+
+    .item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      .icon {
+        height: 60rpx;
+        width: 60rpx;
+      }
+
+      .text {
+        font-size: 26rpx;
+        font-weight: 500;
+      }
+    }
+  }
+}

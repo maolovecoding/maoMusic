@@ -1,66 +1,58 @@
 // pages/detail-search/index.ts
+import search from "../../service/search";
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    // 热词
+    hotKeywords: [],
+    // 搜索建议
+    suggestSongs: [],
+    // 搜索的关键字
+    searchKeyword: "",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
+    this.getPageData();
+  },
+  /**
+   * 加载页面数据
+   */
+  getPageData() {
+    search.getHotSearch().then(res => {
+      // console.log(res.data.result.hots);
+      this.setData({
+        // 热词
+        hotKeywords: res.data.result.hots
+      });
+    });
+  },
+  /**
+   * 搜索框内容发生改变时 触发的回调函数
+   * @param detail 搜索内容
+   */
+  searchDetail({detail}) {
+    this.setData({
+      searchKeyword: detail
+    });
+    detail = (detail as string).trim();
+    if (!detail) {
+      // 清空建议数据
+      this.setData({
+        suggestSongs: []
+      });
+      return;
+    }
 
+    // TODO 向服务器查询数据之前 可以先查询缓存中 是否具有该数据
+    search.getSearchSuggest(detail).then(res => {
+      console.log(res.data.result.allMatch);
+      this.setData({
+        suggestSongs: res.data.result.allMatch
+      });
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
 })
