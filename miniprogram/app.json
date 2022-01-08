@@ -7,7 +7,8 @@
     "pages/home-video/index",
     "pages/detail-video/index",
     "pages/detail-search/index",
-    "pages/detail-song/index"
+    "pages/detail-song/index",
+    "pages/home-my/index"
   ],
   "entryPagePath": "pages/home-music/index",
   "window": {
@@ -25,6 +26,12 @@
         "text": "音乐",
         "iconPath": "assets/images/tabbar/music_normal.png",
         "selectedIconPath": "assets/images/tabbar/music_active.png"
+      },
+      {
+        "pagePath": "pages/home-my/index",
+        "text": "我的",
+        "iconPath": "assets/images/tabbar/my-music.png",
+        "selectedIconPath": "assets/images/tabbar/my-music-acticve.png"
       },
       {
         "pagePath": "pages/home-video/index",

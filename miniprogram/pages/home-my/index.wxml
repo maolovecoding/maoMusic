@@ -1,0 +1,73 @@
+<!--pages/home-my/index.wxml-->
+<view class="home-my">
+    <!-- 头部 -->
+    <view class="header">
+        <view class="more-menu">更多</view>
+        <view class="search-icon">
+            <image src="../../assets/images/icons/search_my.png" mode="widthFix"/>
+        </view>
+    </view>
+    <!-- 用户信息 -->
+    <view class="user-info">
+        <!-- 头像 定位 -->
+        <view class="user-avatar">
+            <image src="{{userInfo.profile.avatarUrl}}" mode="widthFix" class="avatar"/>
+        </view>
+        <view class="my-info">
+            <view class="info">
+                <!--  昵称  -->
+                <view class="nickname">
+                    {{userInfo.profile.nickname}}
+                </view>
+                <view class="my-vip">
+                    <image src="{{vipInfo.redVipLevelIcon}}" mode="widthFix" class="icon"/>
+                </view>
+            </view>
+            <!--  粉丝 关注 等级  -->
+            <view class="my-star">
+                <text class="follows">{{userInfo.profile.follows}} 关注</text>
+                <text class="followeds">{{userInfo.profile.followeds}} 粉丝</text>
+                <text class="level">Lv.{{userLevel.level}}</text>
+            </view>
+        </view>
+    </view>
+    <!--    operation grid -->
+    <!--    <view class="grid">-->
+    <!--        <van-grid gutter="{{ 10 }}">-->
+    <!--            <van-grid-item icon="photo-o" text="文字" wx:for="{{ 8 }}"/>-->
+    <!--        </van-grid>-->
+    <!--    </view>-->
+    <!--  我喜欢的音乐 -->
+    <view class="my-love-music">
+        <view class="my-love">
+            <image class="bg-cover" src="{{myLoveMusic.coverImgUrl}}" mode="widthFix"/>
+            <view class="love">
+                <view>我喜欢的音乐</view>
+                <view>
+                    <image src="../../assets/images/icons/success.png" mode="widthFix"/>
+                    <text>{{myLoveMusic.trackCount}}首</text>
+                </view>
+            </view>
+        </view>
+        <!--    心动模式 -->
+        <view class="be-touched">
+            <image src="../../assets/images/icons/heart.png" mode="widthFix" class="heart"/>
+            <text>心动模式</text>
+        </view>
+    </view>
+    <!--  创建歌单 收藏歌单 歌单助手 -->
+    <view class="song-menu">
+        <view class="song-menu-tab" bindtap="tabChange">
+            <text class="{{ activeTabIndex === '0' ? 'active' : '' }}" id="create" data-operation="create" data-index="0">创建歌单</text>
+            <text class="{{ activeTabIndex === '1' ? 'active' : '' }}" data-operation="keep" data-index="1">收藏歌单</text>
+            <text class="{{ activeTabIndex === '2' ? 'active' : '' }}" data-operation="menu-assistant" data-index="2">歌单助手</text>
+        </view>
+        <view class="context">
+            <m-song-menu-content song-menu="{{createdMenu}}"/>
+            <m-song-menu-content song-menu="{{keepMenu}}"/>
+            <text class="create-menu">创建歌单</text>
+            <text class="keep-menu">创建歌单</text>
+            <text class="menu-assistant">歌单助手</text>
+        </view>
+    </view>
+</view>

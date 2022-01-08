@@ -1,0 +1,132 @@
+// pages/home-my/index.ts
+import my from "../../service/my";
+// import music from "../../service/music";
+import userPlaylist from "../../service/user-playlist";
+
+Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    // 用户信息
+    userInfo: {},
+    // 用户等级
+    userLevel: {},
+    // vip info
+    vipInfo: {},
+    // love music
+    myLoveMusic: {},
+    // 激活的 tab
+    activeTabIndex: "0",
+    // 创建的歌单
+    createdMenu: [] as any[],
+    //  收藏的歌单
+    keepMenu: [] as any[],
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad() {
+    this.getUserInfo();
+    this.getSongDetail();
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+  },
+
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage() {
+  },
+  /**
+   * tab 切换回调
+   * @param e
+   */
+  tabChange(e) {
+    console.log(e, e.target.dataset.index);
+    this.setData({
+      activeTabIndex: e.target.dataset.index
+    });
+  },
+  getUserInfo() {
+    my.login().then(res => {
+      console.log(res);
+      this.setData({
+        userInfo: res
+      });
+    });
+    my.getUserLevel().then(res => {
+      console.log(res.data);
+      this.setData({
+        userLevel: res.data
+      });
+    });
+    my.getUserVipInfo().then(res => {
+      console.log(res.data.data);
+      this.setData({
+        vipInfo: res.data.data
+      })
+    });
+
+  },
+  getSongDetail() {
+    // my.getUserLikeList().then(res => {
+    //   console.log(res.data);
+    //   this.setData({
+    //     ids: res.data.ids
+    //   });
+    //   // 没有点击我的喜欢 只需要获取第一条喜欢的音乐详情数据
+    //   return music.getMusicDetail([res.data.ids[0]]);
+    // }).then(res => {
+    //   console.log(res.data);
+    //   return music.getMusicUrl([res.data.songs[0].id])
+    // }).then(res => {
+    //   console.log(res);
+    // });
+    // 获取我喜欢的音乐歌单
+    userPlaylist.getUserPlayList({limit: 1}).then(res => {
+      // console.log(res.data.playlist);
+      this.setData({
+        myLoveMusic: res.data.playlist[0]
+      });
+      const uid = wx.getStorageSync("uid");
+      // 要注意 userId 是数字  而我们的uid现在是字符串
+      //   createdMenu 创建的歌单    keepMenu 收藏的歌单
+      const keepMenu = [] as any[];
+      const createdMenu = (res.data.playlist.slice(1) as any[]).filter(menu => {
+        if (menu.userId == uid) return true;
+        keepMenu.push(menu);
+        return false;
+      });
+      console.log(createdMenu);
+      this.setData({
+        createdMenu: createdMenu,
+        keepMenu
+      });
+    });
+  }
+});

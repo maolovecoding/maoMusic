@@ -19,8 +19,11 @@ export class Http {
    */
   static request({url, data, method = "GET"}: RequestOption): Promise<any> {
     return promisic(wx.request)({
-      url : BASE_URL + url,
-      data,
+      url: BASE_URL + url,
+      data: {
+        cookie: wx.getStorageSync("cookie"),
+        ...data
+      },
       method,
       // 请求头 备用
       header: {}

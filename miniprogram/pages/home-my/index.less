@@ -1,0 +1,199 @@
+/* pages/home-my/index.wxss */
+page {
+  padding: 0 20rpx;
+
+  .home-my {
+    // 头部
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .more-menu {
+      }
+
+      .search-icon {
+        width: 40rpx;
+        height: 40rpx;
+        margin-right: 20rpx;
+
+        image {
+          width: 100%;
+        }
+      }
+    }
+
+    //  用户信息
+    .user-info {
+      position: relative;
+      background-color: #fff;
+      box-sizing: border-box;
+      height: 240rpx;
+      border-radius: 30rpx;
+      margin-top: 80rpx;
+      padding: 80rpx 0 20rpx;
+      // 头像
+      .user-avatar {
+        width: 120rpx;
+        height: 120rpx;
+        border-radius: 50%;
+        overflow: hidden;
+        position: absolute;
+        left: calc(50% - 60rpx);
+        top: -50rpx;
+
+        .avatar {
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      // 信息
+      .my-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .info {
+          display: flex;
+          margin-bottom: 20rpx;
+
+          .nickname {
+            font-weight: 700;
+            font-size: 36rpx;
+            margin-right: 16rpx;
+          }
+
+          .my-vip {
+            width: 80rpx;
+            height: 60rpx;
+            border-radius: 30rpx;
+
+            image {
+              width: 100%;
+              height: 100%;
+              border-radius: 26rpx;
+              vertical-align: bottom;
+
+            }
+          }
+        }
+
+        .my-star {
+          font-size: 34rpx;
+          color: #999;
+
+          text {
+            margin-right: 24rpx;
+          }
+        }
+      }
+    }
+
+    .grid {
+      padding: 40rpx;
+      margin-top: 20rpx;
+      background-color: #fff;
+    }
+
+    // 我喜欢的音乐
+    .my-love-music {
+      border-radius: 30rpx;
+      margin-top: 30rpx;
+      background-color: #fff;
+      padding: 30rpx;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .my-love {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .bg-cover {
+          height: 100rpx;
+          width: 100rpx;
+          margin-right: 20rpx;
+          border-radius: 20rpx;
+        }
+
+        .love {
+          :first-child {
+            font-weight: 500;
+            font-size: 34rpx;
+            margin-bottom: 10rpx;
+          }
+
+          :last-child {
+            display: flex;
+            align-items: center;
+
+            image {
+              width: 28rpx;
+              height: 28rpx;
+              vertical-align: middle;
+              margin-top: 8rpx;
+            }
+
+            text {
+              margin-left: 6rpx;
+              font-size: 28rpx;
+              color: #bbb;
+              text-align: center;
+              line-height: 36rpx;
+            }
+          }
+        }
+      }
+
+      .be-touched {
+        border-radius: 26rpx;
+        border: 2rpx solid #ccc;
+        padding: 4rpx 10rpx;
+
+        .heart {
+          width: 40rpx;
+          height: 40rpx;
+          vertical-align: middle;
+          margin-right: 4rpx;
+        }
+
+        text {
+          font-size: 26rpx;
+          font-weight: 400;
+          line-height: 40rpx;
+        }
+      }
+    }
+
+    // menu tab
+    .song-menu {
+      margin-top: 30rpx;
+
+      .song-menu-tab {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 30px;
+
+        text {
+          font-size: 32rpx;
+          font-weight: 500;
+          color: #aaa;
+        }
+
+        // active tab
+        .active {
+          color: #000;
+          font-weight: 600;
+          border-bottom: 10rpx solid red;
+        }
+      }
+
+      .content {
+        display: flex;
+      }
+    }
+
+  }
+}

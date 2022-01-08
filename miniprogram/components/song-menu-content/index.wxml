@@ -1,0 +1,19 @@
+<!--components/song-menu-content/index.wxml-->
+<view class="menu">
+    <view class="header">
+        <text class="title">创建歌单（{{songMenu.length}}个）</text>
+        <view class="right">
+            <!--  加号  -->
+            <text class="add">+</text>
+            <view class="dots">
+                <text class="dot"></text>
+                <text class="dot"></text>
+                <text class="dot"></text>
+            </view>
+        </view>
+    </view>
+    <!-- 歌单数据 -->
+    <block wx:for="{{songMenu}}" wx:key="userId">
+        <view>{{item.name}}</view>
+    </block>
+</view>
