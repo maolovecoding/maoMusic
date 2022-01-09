@@ -41,6 +41,12 @@
           "pathName": "pages/home-my/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/detail-search/index",
+          "pathName": "pages/detail-search/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

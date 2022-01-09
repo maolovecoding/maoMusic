@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "vant-search": "@vant/weapp/search/index"
+    "vant-search": "@vant/weapp/search/index",
+    "m-song-list-item": "/components/song-list-item-v2/index"
   }
 }

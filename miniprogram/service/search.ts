@@ -9,6 +9,7 @@ import {Http} from "../http/index"
 export class Search {
   private static readonly HOT_SEARCH = "search/hot";
   private static readonly SEARCH_SUGGEST = "search/suggest";
+  private static readonly SEARCH = "search";
 
   /**
    * 获取热门搜索的关键字
@@ -30,6 +31,21 @@ export class Search {
         keywords,
         // 表示获取的是移动端数据
         type: "mobile"
+      }
+    });
+  }
+
+  /**
+   * 传入搜索关键词可以搜索该音乐 / 专辑 / 歌手 / 歌单 / 用户 , 关键词可以多个 , 以空格隔开
+   * @param keywords
+   */
+  getSearch(keywords: string[], {limit = 30, offset = 0}: { limit: number, offset: number } = {limit: 30, offset: 0}) {
+    return Http.request({
+      url: Search.SEARCH,
+      data: {
+        keywords: keywords.join(""),
+        limit,
+        offset
       }
     });
   }

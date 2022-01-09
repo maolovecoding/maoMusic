@@ -8,11 +8,14 @@
 import {promisic} from "./promisic";
 import QueryRect from "./query-rect";
 import Throttle from "./throttle";
+export * from "./string-to-nodes";
+import debounce from "./debounce";
 
 export {
   promisic,
   QueryRect,
-  Throttle
+  Throttle,
+  debounce
 }
 
 

@@ -1,5 +1,5 @@
 <!--components/recommend-song/index.wxml-->
-<view class="recommend-song">
+<view class="recommend-song" bindtap="itemClick">
     <!--  封面  -->
     <image class="cover" src="{{recommendSong.al.picUrl}}"/>
     <view class="container">

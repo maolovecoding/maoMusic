@@ -1,37 +1,51 @@
 <!--pages/detail-search/index.wxml-->
 <vant-search
-        background="#fafafa"
+        background="#f7f7f7"
         placeholder="搜索您想听的音乐"
         shape="round"
         field-class="input-background"
         custom-class="custom-class"
+        show-action="{{searchKeyword}}"
         bind:change="searchDetail"
+        bind:search="searchAction"
         value="{{searchKeyword}}"
 />
 
         <!--展示热门搜索的 热词-->
-<view class="hot" wx:if="{{!searchKeyword}}">
+<view class="hot" wx:if="{{!searchKeyword && !suggestSongs.length}}">
     <m-area-header title="热门搜索" show="{{false}}"/>
     <view class="keywords">
         <block wx:for="{{hotKeywords}}" wx:key="first">
-            <text class="tag">
+            <!--  热词搜索 -->
+            <text class="tag" bindtap="keywordAction" data-keyword="{{item.first}}">
                 {{item.first}}
             </text>
         </block>
     </view>
 </view>
         <!--搜索建议-->
-<view class="suggest" wx:else>
+<view class="suggest" wx:elif="{{ suggestSongs.length && !searchResult.songs }}">
     <view class="title">搜索 "{{searchKeyword}}"</view>
     <view class="suggest-list">
-        <block wx:for="{{suggestSongs}}" wx:key="keyword">
-            <view class="item">
+        <!--        <block wx:for="{{suggestSongs}}" wx:key="keyword">-->
+        <!--        循环数组变成我们需要的富文本节点对象了 -->
+        <block wx:for="{{suggestSongNodes}}" wx:key="keyword">
+            <view class="item" bindtap="keywordAction" data-index="{{ index }}">
                 <image class="icon" mode="widthFix" src="/assets/images/icons/search_icon.png"/>
-                <text class="text">{{item.keyword}}</text>
+                <!-- TODO 使用富文本 进行搜索关键字和搜索结果的某个字符匹配时 进行高亮显示  -->
+                <!--                <text class="text">{{item.keyword}}</text>-->
+                <rich-text class="text" nodes="{{item}}"></rich-text>
             </view>
         </block>
     </view>
 </view>
 
         <!--搜索结果-->
-<view class=""></view>
+<view class="result" wx:elif="{{ searchResult.songs }}">
+    <view class="title">最佳匹配</view>
+    <view class="list">
+        <block wx:for="{{searchResult.songs}}" wx:key="id">
+            <m-song-list-item item="{{item}}" index="{{index + 1}}"></m-song-list-item>
+        </block>
+    </view>
+</view>

@@ -8,7 +8,8 @@
     "pages/detail-video/index",
     "pages/detail-search/index",
     "pages/detail-song/index",
-    "pages/home-my/index"
+    "pages/home-my/index",
+    "pages/music-player/index"
   ],
   "entryPagePath": "pages/home-music/index",
   "window": {

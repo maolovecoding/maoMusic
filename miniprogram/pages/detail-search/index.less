@@ -1,17 +1,28 @@
 /* pages/detail-search/index.wxss */
 page {
   padding: 0 20rpx;
+  padding-top: 110rpx;
+}
+
+vant-search {
+  position: fixed;
+  top: 0;
+  left: 20rpx;
+  right: 20rpx;
 }
 
 /*更改搜索框的背景颜色*/
 .input-background {
-  background-color: #fff;
+  //background-color: red!important;
+
 }
 
 // 去除搜索框的内边距
 .custom-class {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  //padding-right: 0 !important;
+  //padding: 10rpx 0 !important;
+  //background-color: #fff !important;
+
 }
 
 .hot {
@@ -36,10 +47,11 @@ page {
 
 // 搜索建议
 .suggest {
-  .title{
+  .title {
     color: #53d22d;
     font-weight: 600;
   }
+
   .suggest-list {
     margin-top: 20rpx;
     display: flex;
@@ -60,5 +72,14 @@ page {
         font-weight: 500;
       }
     }
+  }
+}
+
+// 搜索结果展示
+.result {
+  .title {
+    font-size: 36rpx;
+    color: #26ce8a;
+    font-weight: 600;
   }
 }
