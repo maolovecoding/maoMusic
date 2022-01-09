@@ -47,6 +47,12 @@
           "pathName": "pages/detail-search/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/love-music-detail/index",
+          "pathName": "pages/love-music-detail/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

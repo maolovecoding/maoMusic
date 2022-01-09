@@ -1,10 +1,11 @@
 /**
- * @FileName: music.ts
+ * @FileName: my-love-music-store.ts
  * @Description: 音乐相关数据接口
  * @author 毛毛
  * @date 2022-01-01 16:56
  */
 import {Http} from "../http/index";
+import {PageHelper} from "./types";
 
 export class Music {
   /**
@@ -52,6 +53,43 @@ export class Music {
       }
     });
   }
+
+//  获取用户信息 , 歌单，收藏，mv, dj 数量
+  getUserSubCount() {
+    return Http.request({
+      url: "user/subcount",
+    });
+  }
+
+  /**
+   * 获取 音乐的歌词
+   * @param id 音乐id
+   */
+  getMusicLyric(id: number | string) {
+    return Http.request({
+      url: "lyric",
+      data: {
+        id
+      }
+    });
+  }
+
+  /**
+   * 获取音乐评论 歌曲评论
+   * @param id
+   * @param pageHelper
+   */
+  getMusicComments(id: number | string, pageHelper: PageHelper = {limit: 20, offset: 0}) {
+    return Http.request({
+      url: "comment/music",
+      data: {
+        id,
+        ...pageHelper
+      }
+    });
+  }
 }
+
+
 
 export default new Music;

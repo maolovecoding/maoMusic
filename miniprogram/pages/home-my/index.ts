@@ -2,6 +2,7 @@
 import my from "../../service/my";
 // import music from "../../service/music";
 import userPlaylist from "../../service/user-playlist";
+import {myLoveMusicStore} from "../../store/my-love-music-store";
 
 Page({
   /**
@@ -15,7 +16,7 @@ Page({
     // vip info
     vipInfo: {},
     // love music
-    myLoveMusic: {},
+    myLoveMusic: {} as any,
     // 激活的 tab
     activeTabIndex: "0",
     // 创建的歌单
@@ -61,6 +62,16 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() {
+  },
+  /**
+   * 去往我喜欢的音乐歌单
+   * @param e
+   */
+  loveSongClick() {
+    console.log(this.data.myLoveMusic)
+    wx.navigateTo({
+      url: `/pages/love-music-detail/index`
+    });
   },
   /**
    * tab 切换回调
@@ -128,6 +139,8 @@ Page({
       this.setData({
         myLoveMusic: res.data.playlist[0]
       });
+      // 将我喜欢的音乐 歌单 进行数据状态管理
+      myLoveMusicStore.setState("loveMusic", this.data.myLoveMusic);
       const uid = wx.getStorageSync("uid");
       // 要注意 userId 是数字  而我们的uid现在是字符串
       //   createdMenu 创建的歌单    keepMenu 收藏的歌单

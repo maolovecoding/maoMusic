@@ -16,7 +16,7 @@
                 <text class="nickname">{{songInfo.creator.nickname}}</text>
             </view>
             <view clas="desc">
-                简介: {{songInfo.description}}
+                {{songInfo.description ? '简介: ' + songInfo.description : ''}}
             </view>
         </view>
     </view>
@@ -24,7 +24,7 @@
     <view class="operation">
         <view class="favor item">
             <image src="../../assets/images/icons/favor_icon.png" mode="widthFix" class="icon"/>
-            <text class="text">{{format.formatPlayCount(songInfo.playCount)}}</text>
+            <text class="text">{{format.formatPlayCount(songInfo.subscribedCount ? songInfo.subscribedCount : songInfo.playCount)}}</text>
         </view>
         <view class="share item">
             <image src="../../assets/images/icons/share_icon.png" mode="widthFix" class="icon"/>

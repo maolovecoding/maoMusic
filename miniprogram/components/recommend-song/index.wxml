@@ -7,6 +7,6 @@
             <text class="name">{{recommendSong.name}}</text>
             <text class="source">{{recommendSong.ar[0].name}} · {{recommendSong.al.name}}</text>
         </view>
-        <image class="arrow" src="../common/images/icon/arrow-right.png" mode="widthFix"></image>
+        <image class="arrow" src="../../assets/images/icons/arrow-right.png" mode="widthFix"></image>
     </view>
 </view>

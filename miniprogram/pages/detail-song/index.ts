@@ -8,6 +8,8 @@ Page({
     ranking: "",
     type: "",
     songInfo: {},
+    // 歌单的全部歌曲
+    allSong: [],
   },
 
   /**
@@ -21,12 +23,19 @@ Page({
 
     if (type === "menu") {
       console.log(id);
+      // 该接口请求的数据不全 用下一个接口 请求当前歌单的全部数据
       songMenu.getSongMenuDetail(id!).then(res => {
         console.log(res.data.playlist);
         this.setData({
           songInfo: res.data.playlist
-        })
+        });
       });
+      songMenu.getSongMenuTrackAll(id!).then(result => {
+        console.log(result.data);
+        this.setData({
+          allSong: result.data.songs
+        });
+      })
     } else if (type === "rank") {
       this.setData({ranking});
       rankingStore.onState(ranking!, this.getRankingData);

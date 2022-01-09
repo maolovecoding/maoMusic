@@ -26,5 +26,13 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {}
+  methods: {
+    itemClick(e){
+      console.log(e.currentTarget.dataset.id);
+      // 跳转到歌单详情，显示歌单数据
+      wx.navigateTo({
+        url:`/pages/detail-song/index?id=${e.currentTarget.dataset.id}&type=menu`
+      })
+    }
+  }
 })

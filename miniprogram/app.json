@@ -9,7 +9,8 @@
     "pages/detail-search/index",
     "pages/detail-song/index",
     "pages/home-my/index",
-    "pages/music-player/index"
+    "pages/music-player/index",
+    "pages/love-music-detail/index"
   ],
   "entryPagePath": "pages/home-music/index",
   "window": {

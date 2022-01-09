@@ -44,7 +44,7 @@
     <!--    </view>-->
     <!--  我喜欢的音乐 -->
     <view class="my-love-music">
-        <view class="my-love">
+        <view class="my-love" bindtap="loveSongClick">
             <image class="bg-cover" src="{{myLoveMusic.coverImgUrl}}" mode="widthFix"/>
             <view class="love">
                 <view>我喜欢的音乐</view>

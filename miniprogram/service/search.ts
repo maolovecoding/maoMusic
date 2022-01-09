@@ -8,6 +8,7 @@ import {Http} from "../http/index"
 
 export class Search {
   private static readonly HOT_SEARCH = "search/hot";
+  private static readonly HOT_SEARCH_DETAIL = "search/hot/detail";
   private static readonly SEARCH_SUGGEST = "search/suggest";
   private static readonly SEARCH = "search";
 
@@ -17,6 +18,15 @@ export class Search {
   getHotSearch() {
     return Http.request({
       url: Search.HOT_SEARCH
+    });
+  }
+
+  /**
+   *   获取热门搜索的详细数据
+   */
+  getHotSearchDetail() {
+    return Http.request({
+      url: Search.HOT_SEARCH_DETAIL
     });
   }
 

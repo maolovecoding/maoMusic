@@ -11,7 +11,7 @@ declare module "hy-event-store" {
     constructor(options:any);
     dispatch(...any);
     onState(attribute:string,callback:(newVal:any)=>void);
-    setState(attribute:string,callback:(newVal:any)=>void);
+    setState(attribute:string,newValue:any);
     offState(attribute:string,callback:(newVal:any)=>void);
   }
 }

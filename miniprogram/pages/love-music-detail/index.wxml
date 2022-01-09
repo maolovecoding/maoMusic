@@ -1,0 +1,37 @@
+<!--pages/love-music-detail/index.wxml-->
+
+<view class="header">
+    <!--    背景  -->
+    <image class="bg-image" src="{{loveMusicMenu.coverImgUrl}}" mode="aspectFill"/>
+    <view class="bg-cover"/>
+    <view class="content">
+        <!--  歌单封面  -->
+        <image class="menu-avatar" src="{{loveMusicMenu.coverImgUrl}}" mode="aspectFill"/>
+        <!-- 歌单的播放次数 -->
+        <view class="play-count">
+            <!--            <image class="play-image"/>-->
+            <text>{{loveMusicMenu.playCount}}</text>
+        </view>
+        <view class="info">
+            <view class="title">
+                {{loveMusicMenu.name}}
+            </view>
+            <view class="author">
+                <image class="avatar" src="{{loveMusicMenu.creator.avatarUrl}}" mode="aspectFill"/>
+                <view class="nickname">
+                    <text>{{loveMusicMenu.creator.nickname}}</text>
+                    <image class="icon" src="../../assets/images/icons/arrow-right.png" mode="widthFix"/>
+                </view>
+                <view clas="desc">
+                    {{loveMusicMenu.description ? '简介: ' + loveMusicMenu.description : ''}}
+                </view>
+            </view>
+        </view>
+        <!--  收藏 评论 分享  -->
+        <!--        <view clas="operation">-->
+        <!--            <view clas="keep-menu">-->
+        <!--                <image src="../../assets/images/icons/keep_menu.png" mode="widthFix"/>-->
+        <!--            </view>-->
+        <!--        </view>-->
+    </view>
+</view>

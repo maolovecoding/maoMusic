@@ -15,12 +15,12 @@
     <!-- 歌单数据 -->
     <block wx:for="{{songMenu}}" wx:key="userId">
         <!--  歌单封面  -->
-        <view class="menu-item">
+        <view class="menu-item" data-id="{{item.id}}" bindtap="itemClick">
             <image src="{{item.coverImgUrl}}" mode="widthFix" class="cover"/>
             <!--  歌单简略信息  -->
             <view class="menu-item-info">
                 <text>{{item.name}}</text>
-                <text>{{item.trackCount}}首</text>
+                <text>{{item.trackCount}}首，by {{item.creator.nickname}}</text>
             </view>
         </view>
     </block>

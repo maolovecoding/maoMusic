@@ -55,6 +55,9 @@ export class My {
     return data;
   }
 
+  /**
+   * 获取用户等级数据
+   */
   async getUserLevel() {
     const res = wx.getStorageSync("userLevel");
     if (res) return Promise.resolve(res);
@@ -69,6 +72,10 @@ export class My {
     return data;
   }
 
+  /**
+   * 获取用户详细数据
+   * @param uid
+   */
   getUserDetail(uid) {
     return Http.request({
       url: "user/detail",
@@ -78,6 +85,9 @@ export class My {
     });
   }
 
+  /**
+   * 获取账号信息
+   */
   getUserAccount() {
     return Http.request({
       url: "user/account",
@@ -100,6 +110,37 @@ export class My {
       data: {
         uid: wx.getStorageSync("uid")
       }
+    });
+  }
+
+  /**
+   * 喜欢 不喜欢 音乐
+   * @param id 音乐id
+   */
+  setMusicLikeOrDislike(id: number, like = true) {
+    return Http.request({
+      url: "like",
+      data: {
+        id,
+        like
+      }
+    });
+  }
+
+  /**
+   * 更新用户信息
+   * 必选参数：  gender: 性别 0:保密 1:男性 2:女性
+   birthday: 出生日期,时间戳 unix timestamp
+   nickname: 用户昵称
+   province: 省份id
+   city: 城市id
+   signature：用户签名
+   */
+  updateUserInfo() {
+    return Http.request({
+      url: "user/update",
+      method: "POST",
+      data: {}
     });
   }
 }
