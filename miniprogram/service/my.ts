@@ -105,4 +105,4 @@ export class My {
 }
 
 // 暂时用来登录 简单配置
-export default new My("", "");
+export default new My("", ".");

@@ -13,8 +13,8 @@
   "entryPagePath": "pages/home-music/index",
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fafafa",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "mao music",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

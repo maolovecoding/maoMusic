@@ -1,27 +1,55 @@
 /* pages/home-my/index.wxss */
+// 头部
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  width: 100%;
+  position: relative;
+  left: -20rpx;
+  padding: 0 20rpx 10rpx;
+
+  .more-menu {
+    display: flex;
+    flex-direction: column;
+
+    text {
+      height: 3px;
+      background-color: #000;
+      margin-bottom: 8rpx;
+      border-radius: 2rpx;
+    }
+
+    text:first-child {
+      width: 16rpx;
+    }
+
+    text:nth-child(2) {
+      width: 28rpx;
+    }
+
+    text:last-child {
+      width: 42rpx;
+    }
+  }
+
+  .search-icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-bottom: 10rpx;
+
+    image {
+      width: 100%;
+    }
+  }
+}
+
 page {
   padding: 0 20rpx;
 
   .home-my {
-    // 头部
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
 
-      .more-menu {
-      }
-
-      .search-icon {
-        width: 40rpx;
-        height: 40rpx;
-        margin-right: 20rpx;
-
-        image {
-          width: 100%;
-        }
-      }
-    }
 
     //  用户信息
     .user-info {
@@ -132,7 +160,7 @@ page {
             image {
               width: 28rpx;
               height: 28rpx;
-              vertical-align: middle;
+              vertical-align: bottom;
               margin-top: 8rpx;
             }
 
@@ -175,6 +203,8 @@ page {
         display: flex;
         justify-content: space-around;
         margin-bottom: 30px;
+        position: sticky;
+        top: 0;
 
         text {
           font-size: 32rpx;
@@ -191,9 +221,14 @@ page {
       }
 
       .content {
-        display: flex;
+
       }
     }
 
   }
+}
+
+// 外部样式类
+.menu-class {
+  margin-bottom: 20rpx;
 }

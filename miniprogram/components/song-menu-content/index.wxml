@@ -1,10 +1,10 @@
 <!--components/song-menu-content/index.wxml-->
-<view class="menu">
+<view class="menu menu-class">
     <view class="header">
         <text class="title">创建歌单（{{songMenu.length}}个）</text>
         <view class="right">
             <!--  加号  -->
-            <text class="add">+</text>
+            <text wx:if="{{showAdd}}" class="add">+</text>
             <view class="dots">
                 <text class="dot"></text>
                 <text class="dot"></text>
@@ -14,6 +14,14 @@
     </view>
     <!-- 歌单数据 -->
     <block wx:for="{{songMenu}}" wx:key="userId">
-        <view>{{item.name}}</view>
+        <!--  歌单封面  -->
+        <view class="menu-item">
+            <image src="{{item.coverImgUrl}}" mode="widthFix" class="cover"/>
+            <!--  歌单简略信息  -->
+            <view class="menu-item-info">
+                <text>{{item.name}}</text>
+                <text>{{item.trackCount}}首</text>
+            </view>
+        </view>
     </block>
 </view>

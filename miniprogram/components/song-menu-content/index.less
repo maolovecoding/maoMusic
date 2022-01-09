@@ -2,6 +2,7 @@
 .menu {
   padding: 30rpx;
   background-color: #fff;
+  border-radius: 30rpx;
 
   .header {
     display: flex;
@@ -20,8 +21,9 @@
 
       .add {
         font-size: 60rpx;
-        margin-right: 6rpx;
+        margin-right: 24rpx;
         margin-top: -10rpx;
+        font-weight: 300;
       }
 
       .dots {
@@ -31,9 +33,40 @@
         height: 42rpx;
 
         .dot {
-          border: 6rpx solid #AAA;
+          //border: 6rpx solid #AAA;
+          width: 8rpx;
+          height: 8rpx;
+          background-color: #AAA;
           border-radius: 50%;
         }
+      }
+    }
+  }
+
+  .menu-item {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10rpx;
+
+    .cover {
+      width: 100rpx;
+      margin-right: 20rpx;
+      border-radius: 20rpx;
+    }
+
+    .menu-item-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      text:first-child {
+        font-size: 32rpx;
+        font-weight: 500;
+      }
+
+      text:last-child {
+        color: #CCC;
+        font-size: 24rpx;
       }
     }
   }

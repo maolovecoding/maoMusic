@@ -1,12 +1,17 @@
 <!--pages/home-my/index.wxml-->
-<view class="home-my">
-    <!-- 头部 -->
-    <view class="header">
-        <view class="more-menu">更多</view>
-        <view class="search-icon">
-            <image src="../../assets/images/icons/search_my.png" mode="widthFix"/>
-        </view>
+        <!-- 头部 -->
+<view class="header">
+    <view class="more-menu">
+        <text class="top"></text>
+        <text class="center"></text>
+        <text class="bottom"></text>
     </view>
+    <view class="search-icon">
+        <image src="../../assets/images/icons/search_my.png" mode="widthFix"/>
+    </view>
+</view>
+<view class="home-my">
+
     <!-- 用户信息 -->
     <view class="user-info">
         <!-- 头像 定位 -->
@@ -58,15 +63,16 @@
     <!--  创建歌单 收藏歌单 歌单助手 -->
     <view class="song-menu">
         <view class="song-menu-tab" bindtap="tabChange">
-            <text class="{{ activeTabIndex === '0' ? 'active' : '' }}" id="create" data-operation="create" data-index="0">创建歌单</text>
+            <text class="{{ activeTabIndex === '0' ? 'active' : '' }}" id="create" data-operation="create"
+                  data-index="0">创建歌单</text>
             <text class="{{ activeTabIndex === '1' ? 'active' : '' }}" data-operation="keep" data-index="1">收藏歌单</text>
             <text class="{{ activeTabIndex === '2' ? 'active' : '' }}" data-operation="menu-assistant" data-index="2">歌单助手</text>
         </view>
         <view class="context">
-            <m-song-menu-content song-menu="{{createdMenu}}"/>
-            <m-song-menu-content song-menu="{{keepMenu}}"/>
-            <text class="create-menu">创建歌单</text>
-            <text class="keep-menu">创建歌单</text>
+            <m-song-menu-content menu-class="menu-class" song-menu="{{createdMenu}}"/>
+            <m-song-menu-content menu-class="menu-class" show-add="{{false}}" song-menu="{{keepMenu}}"/>
+            <!--            <text class="create-menu">创建歌单</text>-->
+            <!--            <text class="keep-menu">创建歌单</text>-->
             <text class="menu-assistant">歌单助手</text>
         </view>
     </view>

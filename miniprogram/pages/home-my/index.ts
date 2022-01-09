@@ -72,6 +72,21 @@ Page({
       activeTabIndex: e.target.dataset.index
     });
   },
+  /**
+   * 歌单 tab 栏 滚动到当前页面视图的顶部时
+   */
+  songMenuTabScrollToTop() {
+    wx.createSelectorQuery().select(".song-menu-tab").boundingClientRect(rect => {
+      console.log(rect, rect.top);
+      wx.pageScrollTo({
+        // selector: ".song-menu-tab",
+        scrollTop: 0,
+        duration: 200
+      }).then(res => {
+        console.log(res);
+      })
+    })
+  },
   getUserInfo() {
     my.login().then(res => {
       console.log(res);
