@@ -1,0 +1,9 @@
+<!--components/recommend-video-list/index.wxml-->
+<view class="container">
+    <view class="header">{{title}}</view>
+    <view class="items">
+        <block wx:for="{{items}}" wx:id="vid">
+            <m-recommend-video-list-item item="{{item}}"/>
+        </block>
+    </view>
+</view>

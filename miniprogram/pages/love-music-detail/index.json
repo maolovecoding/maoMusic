@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "m-song-list-item": "/components/song-list-item/index"
+  }
 }

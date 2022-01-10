@@ -1,0 +1,15 @@
+<!--components/recommend-video-list-item/index.wxml-->
+<wxs src="../common/wxs/format.wxs" module="format"></wxs>
+<view class="container">
+    <view class="cover">
+        <image mode="widthFix" src="{{item.coverUrl}}"/>
+        <view class="play-count">
+            <image class="icon" mode="widthFix" src="../common/images/icon/player_recommend.png"/>
+            <text>{{format.formatPlayCount(item.playTime)}}</text>
+        </view>
+    </view>
+    <view class="info">
+        <view class="title">{{item.title}}</view>
+        <view class="name">{{item.creator[0].userName}}</view>
+    </view>
+</view>

@@ -1,0 +1,54 @@
+/* components/recommend-video-list-item/index.wxss */
+
+.container {
+  display: flex;
+  align-items: center;
+  padding-top: 20rpx;
+  padding-left: 10rpx;
+  padding-right: 50rpx;
+
+  .cover {
+    position: relative;
+    margin-right: 30rpx;
+
+    > image {
+      width: 220rpx;
+      height: 140rpx;
+      border-radius: 20rpx;
+    }
+
+    .play-count {
+      position: absolute;
+      right: 10rpx;
+      bottom: 10rpx;
+      z-index: 9;
+
+      .icon {
+        height: 20rpx;
+        width: 30rpx;
+      }
+
+      text {
+        font-size: 24rpx;
+        color: #fff;
+      }
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .title {
+      font-size: 28rpx;
+      margin-bottom: 6rpx;
+    }
+
+    .name {
+      font-size: 26rpx;
+      color: #AAA;
+    }
+  }
+
+}

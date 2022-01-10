@@ -1,18 +1,30 @@
 // pages/music-player/index.ts
+import music from "../../service/music";
+
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: {
-
-  },
+  data: {},
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
+  onLoad({id}) {
+    this.getMusicInfo(id);
+  },
 
+  async getMusicInfo(id) {
+    // 音乐 url
+    const res1 = await music.getMusicUrl([id]);
+    // 音乐 评论
+    const res2 = await music.getMusicComments(id);
+    // 歌词
+    const res3 = await music.getMusicLyric(id);
+    console.log(res1);
+    console.log(res2);
+    console.log(res3);
   },
 
   /**

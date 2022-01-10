@@ -1,5 +1,4 @@
 <!--pages/love-music-detail/index.wxml-->
-
 <view class="header">
     <!--    背景  -->
     <image class="bg-image" src="{{loveMusicMenu.coverImgUrl}}" mode="aspectFill"/>
@@ -34,4 +33,10 @@
         <!--            </view>-->
         <!--        </view>-->
     </view>
+</view>
+
+<view class="song-list">
+    <block wx:for="{{allSong}}" wx:key="id">
+        <m-song-list-item item="{{item}}" index="{{index + 1}}"/>
+    </block>
 </view>

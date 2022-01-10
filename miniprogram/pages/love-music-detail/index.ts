@@ -13,6 +13,8 @@ Page({
     loveMusicMenu: {} as any,
     // love music ids
     loveMusicIds: [],
+    // all songs
+    allSong: [] as any[],
   },
 
   /**
@@ -35,7 +37,10 @@ Page({
       // 获取前一百条数据
       return music.getMusicDetail(this.data.loveMusicIds.slice(0, 100));
     }).then(res => {
-      console.log(res.data.songs);
+      // console.log(res.data.songs);
+      this.setData({
+        allSong: res.data.songs
+      })
     })
   },
 
@@ -57,7 +62,15 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    if (this.data.allSong && this.data.allSong.length !== this.data.loveMusicIds.length) {
+      // 再次请求一百条数据
+      music.getMusicDetail(this.data.loveMusicIds.slice(this.data.allSong.length, this.data.allSong.length + 100)).then(res => {
+        console.log(res);
+        this.setData({
+          allSong: this.data.allSong.concat(res.data.songs)
+        });
+      });
+    }
   },
 
   /**

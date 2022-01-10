@@ -2,11 +2,20 @@
 
         <!-- referrer-policy 该属性为推荐策略，小程序可以在客户端进行一些缓存，
          有些服务器可以验证视频 解决有时候视频不能正确播放的问题 -->
+<wxs src="../../wxs/format.wxs" module="format"></wxs>
 <video
         src="{{mvInfo.url}}"
         autoplay loop
         referrer-policy="origin"
 ></video>
-<!--视频详情-->
-<text>{{mvDetail.artistName}}</text>
+        <!--视频详情-->
+<scroll-view class="video-info">
+    <view class="video-detail">
+        <view class="video-name">{{mvDetail.name}}</view>
+        <view class="author-name">{{mvDetail.artistName}}</view>
+        <view class="play-count">{{format.formatPlayCount(mvDetail.playCount)}} - {{mvDetail.publishTime}}</view>
+    </view>
+    <!--  推荐视频  -->
+    <m-recommend-video-list title="相关视频" items="{{mvRelatedVideo}}"/>
+</scroll-view>
 

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "m-recommend-video-list-item": "/components/recommend-video-list-item/index"
+  }
+}
