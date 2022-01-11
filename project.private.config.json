@@ -53,6 +53,12 @@
           "pathName": "pages/love-music-detail/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/music-player/index",
+          "pathName": "pages/music-player/index",
+          "query": "id=1901371647",
+          "scene": null
         }
       ]
     }

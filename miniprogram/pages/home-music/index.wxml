@@ -24,6 +24,7 @@
                    mode="widthFix"
                    bindload="imgOnLoad"
             />
+            <text style="background-color: {{item.titleColor}};">{{item.typeTitle}}</text>
         </swiper-item>
     </block>
 </swiper>
@@ -56,7 +57,7 @@
     <m-area-header title="巅峰榜" show="{{false}}"></m-area-header>
     <view class="ranking-list">
         <block wx:for="{{rankings}}" wx:key="name">
-            <m-ranking-area-item item="{{item}}" bindtap="rankingItemClick" data-idx="{{index}}" />
+            <m-ranking-area-item item="{{item}}" bindtap="rankingItemClick" data-idx="{{index}}"/>
         </block>
     </view>
 </view>

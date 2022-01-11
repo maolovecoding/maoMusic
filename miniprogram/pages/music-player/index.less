@@ -1,1 +1,236 @@
 /* pages/music-player/index.wxss */
+page {
+  color: #fff;
+}
+
+.bg-image, .bg-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.bg-cover {
+  background-color: rgba(0, 0, 0, .3);
+  // 毛玻璃特性
+  backdrop-filter: blur(14rpx);
+}
+
+.tab {
+  display: flex;
+  font-size: 28rpx;
+  color: #aaa;
+
+  .divider {
+    margin: 0 8rpx;
+  }
+
+  .active {
+    color: #FFF;
+    font-weight: 500;
+  }
+}
+
+.content {
+  .music {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    box-sizing: border-box;
+
+    .album {
+      flex: 5;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 30rpx;
+      //height: 80%;
+
+      image {
+        width: 100%;
+        border-radius: 20rpx;
+        height: 100%;
+      }
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      //height: 120rpx;
+
+      .title {
+        font-size: 36rpx;
+        font-weight: 600;
+        margin-bottom: 10rpx;
+      }
+
+      .sub-title {
+        display: flex;
+        flex-direction: column;
+
+        > text {
+          font-size: 26rpx;
+          color: #ccc;
+          margin-bottom: 6rpx;
+        }
+      }
+    }
+
+    .lyric {
+      //text-align: center;
+      flex: 1;
+      margin-top: 20rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .progress {
+      width: 100%;
+      //height: 20rpx;
+    }
+
+    .time {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 20rpx 20rpx;
+      margin-top: -6rpx;
+      //height: 30rpx;
+    }
+
+    .operation {
+      height: 120rpx;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 20rpx;
+      margin-bottom: 10rpx;
+
+      .btn {
+        width: 74rpx;
+      }
+    }
+  }
+}
+
+.tab-title {
+  width: 400rpx;
+  overflow: hidden;
+  white-space: nowrap;
+
+  text {
+    font-size: 28rpx;
+  }
+}
+
+.content-around {
+  padding: 30rpx;
+  box-sizing: border-box;
+
+
+  .music {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .outer-album {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .album {
+        width: 460rpx;
+        height: 460rpx;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4rpx dashed #FFF;
+        margin: 20rpx auto 30rpx;
+
+        .album-inner {
+          width: 400rpx;
+          height: 400rpx;
+          border-radius: 50%;
+          overflow: hidden;
+          margin: 30rpx;
+
+          image {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    .operation-icon {
+      display: flex;
+      justify-content: space-around;
+      height: 80rpx;
+      margin-bottom: 50rpx;
+    }
+
+    .progress {
+      display: flex;
+      align-items: center;
+      height: 80rpx;
+
+      slider {
+        width: 100%;
+      }
+
+      view {
+        font-size: 22rpx;
+        color: #ccc;
+      }
+
+      view:first-of-type {
+        margin-right: -4rpx;
+      }
+
+      view:last-of-type {
+        margin-left: -4rpx;
+      }
+    }
+
+    .operation {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 80rpx;
+      margin-top: 50rpx;
+      margin-bottom: 50rpx;
+    }
+  }
+}
+
+// 图片旋转动画
+.musicImgRotate {
+  animation: imageRotate 12s linear infinite;
+}
+
+// 暂停
+.pause {
+  animation-play-state: paused;
+}
+
+// 定义动画帧
+@keyframes imageRotate {
+  from {
+    // 0度
+    transform: rotate(0deg);
+  }
+  to {
+    // 1turn = 260deg
+    transform: rotate(1turn);
+  }
+}

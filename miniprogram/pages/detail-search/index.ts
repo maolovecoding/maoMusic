@@ -48,8 +48,12 @@ Page({
     if (!detail) {
       // 清空建议数据
       this.setData({
-        suggestSongs: []
+        suggestSongs: [],
+        // 清空上次搜索结果
+        searchResult: [],
       });
+      // 取消查询搜索结果的请求
+      (search.getSearchSuggest as any).cancel();
       return;
     }
 
@@ -57,6 +61,7 @@ Page({
     // 查询本地缓存 是否具有缓存的数据
     search.getSearchSuggest(detail).then(res => {
       console.log(res.data.result.allMatch);
+      // if (!this.data.searchKeyword) return;
       // 搜索建议结果 一般是6条数据
       const suggestSongs = res.data.result.allMatch;
       // 将搜索结果 转为展示的富文本的nodes节点
@@ -86,6 +91,7 @@ Page({
   },
   /**
    * 点击搜索建议 触发搜索  弃用
+   * @deprecated 废弃
    * @param e
    */
   suggestSongAction(e) {
@@ -102,6 +108,7 @@ Page({
   },
   /**
    * 点击热词搜索 触发  弃用
+   * @deprecated 废弃
    * @param e
    */
   hotSongTagAction(e) {
@@ -139,6 +146,7 @@ Page({
    * 已经弃用 这里只是暂时保存
    * 将搜索建议的结果 转为进行富文本展示时的nodes节点
    * @param suggestSongs
+   * @deprecated
    */
   suggestSongsToNodes(suggestSongs: any[]) {
     // 取出关键词

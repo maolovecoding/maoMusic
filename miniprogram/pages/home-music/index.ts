@@ -2,6 +2,7 @@ import music from "../../service/music";
 import {QueryRect, Throttle} from "../../utils/index"
 import rankingStore, {rankingMap} from "../../store/ranking-store"
 import {SongMenu} from "../../service/song-menu"
+import topic from "../../service/topic";
 // 热门歌单请求
 const hotSongMenu = new SongMenu();
 // 推荐歌单请求
@@ -48,6 +49,8 @@ Page({
     rankingStore.onState("newRanking", this.getRankingHandler(0));
     rankingStore.onState("originRanking", this.getRankingHandler(2));
     rankingStore.onState("upRanking", this.getRankingHandler(3));
+    // 获取热门话题
+    this.getHotTopic();
   },
 
   getPageData() {
@@ -131,6 +134,17 @@ Page({
     wx.navigateTo({
       // 跳转详情页 类型：榜单排行
       url: `/pages/detail-song/index?ranking=${ranking}&type=rank`
+    });
+  },
+  /**
+   * 获取热门话题数据
+   */
+  getHotTopic(){
+    topic.getHotTopic({
+      limit: 30,
+      offset: 60
+    }).then(res=>{
+      console.log(res);
     });
   },
 

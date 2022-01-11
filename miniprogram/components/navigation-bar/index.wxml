@@ -1,0 +1,26 @@
+<!--components/navigation-bar/index.wxml-->
+<view class="nav">
+    <!--    状态栏  -->
+    <view class="status-bar" style="height: {{statusBarHeight}}px; width:100%;"></view>
+    <!--  自定义导航区域  -->
+    <view class="nav-bar" style="height: {{navigationBarHeight}}px;">
+        <view class="left" bindtap="backClick">
+            <!--   左侧插槽 自定义  -->
+            <view class="left-slot">
+                <!--    左侧插槽 -->
+                <slot name="left"></slot>
+            </view>
+            <view class="arrow">
+                <image src="../common/images/icon/play_arrow.png" mode="widthFix" class="icon"/>
+            </view>
+        </view>
+        <view class="center">
+            <view class="center-slot">
+                <!--    标题插槽  -->
+                <slot name="title"></slot>
+            </view>
+            <view class="center-title">{{title}}</view>
+        </view>
+        <view class="right"></view>
+    </view>
+</view>

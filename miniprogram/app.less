@@ -13,10 +13,82 @@ page {
   background-color: #f7f7f7;
   box-sizing: border-box;
 }
+
 .van-search {
   padding: 10px 0 !important;
 }
 
 .van-search__content {
   background-color: #fff !important;
+}
+
+// 字体图标
+
+@font-face {
+  font-family: 'iconfont';  /* Project id 3134074 */
+  src: url('//at.alicdn.com/t/font_3134074_03morfnbmw0s.woff2?t=1641895698845') format('woff2'),
+  url('//at.alicdn.com/t/font_3134074_03morfnbmw0s.woff?t=1641895698845') format('woff'),
+  url('//at.alicdn.com/t/font_3134074_03morfnbmw0s.ttf?t=1641895698845') format('truetype');
+}
+
+// 字体图标样式前缀
+.my-icon {
+  font-family: "iconfont"
+}
+
+.my-icon-love::before {
+  content: "\e761"
+}
+.my-icon-loveing::before {
+  content: "\e761"
+}
+
+.my-icon-download::before {
+  content: "\e856"
+}
+
+.my-icon-song::before {
+  content: "\e63e"
+}
+
+.my-icon-comment::before {
+  content: "\e600"
+}
+
+.my-icon-menu::before {
+  content: "\e658"
+}
+
+.my-icon-prev::before {
+  content: "\e603"
+}
+
+.my-icon-next::before {
+  content: "\e602"
+}
+
+.my-icon-random::before {
+  content: "\e6da"
+}
+
+.my-icon-pause::before {
+  content: "\e6c2"
+}
+
+.my-icon-start::before {
+  content: "\e612"
+}
+
+.my-icon-song-menu::before {
+  content: "\e624"
+}
+
+// 列表循环
+.my-icon-loop::before {
+  content: "\ea76"
+}
+
+// 单曲循环
+.my-icon-circle::before {
+  content: "\e61f"
 }

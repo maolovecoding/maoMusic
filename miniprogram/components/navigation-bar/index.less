@@ -1,0 +1,46 @@
+/* components/navigation-bar/index.wxss */
+.nav {
+  .nav-bar {
+    display: flex;
+    //height: 44px; 设备信息常量配置
+    text-align: center;
+
+    .left, .right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 120rpx;
+    }
+
+    .left {
+      .arrow {
+        display: none;
+
+        .icon {
+          width: 44rpx;
+          display: block;
+        }
+      }
+
+      .left-slot:empty + .arrow {
+        display: block;
+      }
+    }
+
+    .center {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .center-title {
+        display: none;
+      }
+
+      .center-slot:empty + .center-title {
+        display: block;
+      }
+    }
+
+  }
+}

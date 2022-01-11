@@ -1,2 +1,97 @@
 <!--pages/music-player/index.wxml-->
-<text>pages/music-player/index.wxml</text>
+        <!--背景图片-->
+<image class="bg-image" src="{{currentSong.al.picUrl}}" mode="aspectFill"/>
+        <!--遮罩-->
+<view class="bg-cover"></view>
+        <!--导航 nav-bar -->
+        <!--<m-nav-bar>-->
+        <!--    <view class="tab" slot="title">-->
+        <!--        <text class="{{ currentPageIndex === 0 ? 'active' : '' }}">歌曲</text>-->
+        <!--        <text class="divider">|</text>-->
+        <!--        <text class="{{ currentPageIndex === 1 ? 'active' : '' }}">歌词</text>-->
+        <!--    </view>-->
+        <!--</m-nav-bar>-->
+        <!-- 内容 -->
+        <!--<swiper-->
+        <!--        class="content"-->
+        <!--        style="height: {{contentHeight}}px;"-->
+        <!--        bindchange="swiperItemChange">-->
+        <!--    <swiper-item class="music">-->
+        <!--        <view class="album">-->
+        <!--            <image src="{{currentSong.al.picUrl}}" mode="aspectFill"/>-->
+        <!--        </view>-->
+        <!--        <view class="info">-->
+        <!--            <text class="title">{{currentSong.al.name}}</text>-->
+        <!--            <view class="sub-title">-->
+        <!--                <text class="singer">{{currentSong.ar[0].name}}</text>-->
+        <!--                <text class="alias">专辑: 《英雄联盟》</text>-->
+        <!--            </view>-->
+        <!--        </view>-->
+        <!--        <view class="lyric">歌词222222222</view>-->
+        <!--        <view class="progress">-->
+        <!--            <slider block-size="{{12}}"></slider>-->
+        <!--        </view>-->
+        <!--        &lt;!&ndash;        时长    &ndash;&gt;-->
+        <!--        <view class="time">-->
+        <!--            <view class="current-time">01:22</view>-->
+        <!--            <view class="duration-time">03:56</view>-->
+        <!--        </view>-->
+        <!--        <view class="operation">-->
+        <!--            <image class="btn btn-mode" src="../../assets/images/new-player/play_random.png" mode="widthFix"/>-->
+        <!--            <image class="btn btn-prev" src="../../assets/images/new-player/play_prev.png" mode="widthFix"/>-->
+        <!--            <image class="btn btn-pause" src="../../assets/images/new-player/play_pause.png" mode="widthFix"/>-->
+        <!--            <image class="btn btn-next" src="../../assets/images/new-player/play_next.png" mode="widthFix"/>-->
+        <!--            <image class="btn btn-music" src="../../assets/images/new-player/play_music.png" mode="widthFix"/>-->
+        <!--        </view>-->
+        <!--    </swiper-item>-->
+        <!--    &lt;!&ndash;  歌词  &ndash;&gt;-->
+        <!--    <swiper-item class="lyric">2</swiper-item>-->
+        <!--</swiper>-->
+
+
+        <!--<view>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</view>-->
+
+<m-nav-bar bind:back="backUpPage">
+    <view class="tab-title" slot="title">
+        <text> {{title}} </text>
+    </view>
+</m-nav-bar>
+<swiper
+        class="content-around"
+        style="height: {{contentHeight}}px;"
+        bindchange="swiperItemChange">
+    <swiper-item class="music">
+        <view class="outer-album">
+            <view class="album">
+                <view class="album-inner">
+                    <!--  旋转的暂停 和继续  暂停时添加暂停样式  -->
+                    <image class="musicImgRotate {{isPlaying ? '' : 'pause'}}" src="{{currentSong.al.picUrl}}"
+                           mode="aspectFill"/>
+                </view>
+            </view>
+        </view>
+        <!--        相关操作 图标 -->
+        <view class="operation-icon">
+            <van-icon class-prefix="my-icon" name="love" size="60rpx"/>
+            <van-icon class-prefix="my-icon" name="download" size="60rpx"/>
+            <van-icon class-prefix="my-icon" name="song" size="60rpx"/>
+            <van-icon class-prefix="my-icon" name="comment" size="60rpx"/>
+            <van-icon class-prefix="my-icon" name="song-menu" size="60rpx"/>
+        </view>
+        <!--  进度条 时长 -->
+        <view class="progress">
+            <view class="current-time">01:22</view>
+            <slider block-size="{{6}}"></slider>
+            <view class="duration-time">03:56</view>
+        </view>
+        <view class="operation">
+            <van-icon class-prefix="my-icon" name="random" size="60rpx"/>
+            <van-icon class-prefix="my-icon" name="prev" size="60rpx"/>
+            <van-icon class-prefix="my-icon" name="pause" size="100rpx"/>
+            <van-icon class-prefix="my-icon" name="next" size="60rpx"/>
+            <van-icon class-prefix="my-icon" name="song-menu" size="60rpx"/>
+        </view>
+    </swiper-item>
+    <!--  歌词  -->
+    <swiper-item class="lyric">2</swiper-item>
+</swiper>

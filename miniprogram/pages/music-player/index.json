@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "m-nav-bar": "/components/navigation-bar/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white"
 }
