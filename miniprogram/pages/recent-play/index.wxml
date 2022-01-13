@@ -1,0 +1,30 @@
+<!--pages/recent-play/index.wxml-->
+<van-nav-bar
+        title="最近播放"
+        left-arrow
+        bind:click-left="onClickLeft"
+        title-class="nav-bar-title-class"
+        custom-class="nav-bar-custom-class"
+/>
+        <!--导航栏的高度是46 -->
+<van-tabs swipe-threshold="4" sticky lazy-render offset-top="{{46 + statusBarHeight}}" line-width="140rpx"
+          active="{{ active }}" swipeable
+          nav-class="tab-title-style">
+    <van-tab title="歌曲" info="{{recentSongs.length}}">
+        <block wx:for="{{ recentSongs }}" wx:key="id">
+            <m-song-list-item index="{{index+1}}" item="{{item.data}}"/>
+        </block>
+    </van-tab>
+    <van-tab title="直播">内容 2</van-tab>
+    <van-tab title="视频" info="{{recentMvs.length}}">
+        <block wx:for="{{ recentMvs }}" wx:key="id">
+            <!--            <block wx:if="{{item.resourceType === 'MV'}}">-->
+            <m-video-list-item item="{{item}}"/>
+            <!--            </block>-->
+        </block>
+    </van-tab>
+    <van-tab title="声音">内容 4</van-tab>
+    <van-tab title="歌单">内容 5</van-tab>
+    <van-tab title="专辑">内容 6</van-tab>
+    <van-tab title="播客">内容 6</van-tab>
+</van-tabs>

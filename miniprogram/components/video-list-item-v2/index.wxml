@@ -1,0 +1,20 @@
+<!--components/video-list-item-v2/index.wxml-->
+<wxs src="../common/wxs/format.wxs" module="format"></wxs>
+<view class="container">
+    <van-image custom-class="van-image" src="{{item.data.coverUrl}}" width="200rpx" height="120rpx" fit="cover" lazy-load/>
+    <view class="info">
+        <view class="top">
+            <van-icon wx:if="{{item.resourceType === 'MV'}}" class-prefix="my-icon" name="mv" color="red"/>
+            <text class="name">{{item.data.name || item.data.title}}</text>
+        </view>
+        <view class="bottom">
+            <view class="left">
+                <text class="duration">{{format.formatDuration(item.data.duration)}}</text>
+                <text wx:if="{{item.resourceType === 'MV'}}" class="author-name">, {{item.data.artists[0].name}}</text>
+                <text wx:else class="author-name">, {{item.data.creator.nickname}}</text>
+            </view>
+            <!--   在什么时间播放的  需要根据时间戳进行计算的 -->
+            <text class="play-time">{{format.formatTime(item.playTime)}}</text>
+        </view>
+    </view>
+</view>

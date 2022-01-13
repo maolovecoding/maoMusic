@@ -24,7 +24,7 @@ Page({
     //  收藏的歌单
     keepMenu: [] as any[],
     // 宫格区域展示的数据
-    grid:["recently","downloaded","air","bug","friend","keep","get-friend","add"],
+    grid: ["recently", "downloaded", "air", "bug", "friend", "keep", "get-friend", "add"],
   },
 
   /**
@@ -36,6 +36,17 @@ Page({
   },
   onShow(): void | Promise<void> {
     this.onLoad();
+  },
+  /**
+   * 去往最近播放页面
+   * @param e
+   */
+  recentlyClick(e) {
+    console.log(e);
+    // 去往最近播放页面
+    wx.navigateTo({
+      url: "/pages/recent-play/index"
+    });
   },
 
   /**

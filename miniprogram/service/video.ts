@@ -95,6 +95,18 @@ export class Video {
       }
     });
   }
+
+  /**
+   * 获取最近播放的mv
+   */
+  getRecentMv(limit = 100){
+    return Http.request({
+      url:"record/recent/video",
+      data:{
+        limit
+      }
+    });
+  }
 }
 
 /**

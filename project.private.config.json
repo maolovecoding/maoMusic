@@ -65,6 +65,12 @@
           "pathName": "pages/login/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/recent-play/index",
+          "pathName": "pages/recent-play/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

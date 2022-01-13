@@ -22,4 +22,4 @@ export const musicPlayerStore = new HYEventStore({
   }
 });
 
-musicPlayerStore.dispatch("getLoveMusicIds");
+// musicPlayerStore.dispatch("getLoveMusicIds");

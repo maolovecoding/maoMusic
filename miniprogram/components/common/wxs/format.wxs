@@ -35,7 +35,41 @@ function formatDuration(duration) {
   return padStartZero(minus + "") + ":" + padStartZero(seconds + "");
 }
 
+/**
+ * 格式化时间戳
+ * @param time
+ */
+function formatTime(time) {
+  var date = getDate(time);
+  // 秒
+  var second = date.getSeconds();
+  // 分
+  var minute = date.getMinutes();
+  // 时
+  var hour = date.getHours();
+  // 天
+  var day = date.getDay();
+  // 当前时间
+  var currDate = getDate();
+  var currDay = currDate.getDay();
+  var year = date.getFullYear();
+  var currYear = currDate.getFullYear();
+  var month = date.getMonth();
+  if (currYear === year) {
+    if (currDay - day === 1) {
+      return "昨天" + " " + padStartZero(hour + "") + ":" + padStartZero(minute + "");
+    }
+    if (currDay - day === 2) {
+      return "前天" + " " + padStartZero(hour + "") + ":" + padStartZero(minute + "");
+    }
+    return month + 1 + "月" + (day + 1) + "日";
+  }
+  return year + "年" + (month + 1) + "月" + (day + 1) + "日";
+
+}
+
 module.exports = {
   formatPlayCount: formatPlayCount,
-  formatDuration: formatDuration
+  formatDuration: formatDuration,
+  formatTime: formatTime
 }

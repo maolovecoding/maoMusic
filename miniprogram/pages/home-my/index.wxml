@@ -42,7 +42,7 @@
     <view class="grid">
         <van-grid gutter="{{ 10 }}" border="{{false}}">
             <van-grid-item wx:for="{{ grid }}" use-slot>
-                <van-icon size="60rpx" class-prefix="my-icon" name="{{item}}" color="#d22"/>
+                <van-icon bind:click="{{item}}Click" size="60rpx" class-prefix="my-icon" name="{{item}}" color="#d22"/>
             </van-grid-item>
         </van-grid>
     </view>

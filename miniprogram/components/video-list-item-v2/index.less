@@ -1,0 +1,49 @@
+/* components/video-list-item-v2/index.wxss */
+
+.container {
+  background-color: #FFF;
+  display: flex;
+  margin-bottom: 16rpx;
+  box-sizing: border-box;
+
+  .info {
+    width: 100%;
+    margin-left: 16rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .top {
+      :first-child {
+        margin-right: 6rpx;
+      }
+
+      text {
+        font-size: 34rpx;
+        font-weight: 500;
+      }
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      text {
+        font-size: 24rpx;
+        color: #ccc;
+      }
+
+      .play-time {
+      }
+    }
+
+
+  }
+}
+
+
+.van-image {
+  border-radius: 10rpx !important;
+  overflow: hidden !important;
+}

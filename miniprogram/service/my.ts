@@ -5,6 +5,7 @@
  * @date 2022-01-08 13:00
  */
 import {Http} from "../http/index";
+// import {PageHelper} from "./types";
 
 export class My {
   /**
@@ -141,6 +142,19 @@ export class My {
       url: "user/update",
       method: "POST",
       data: {}
+    });
+  }
+
+  /**
+   * 获取最近播放的歌曲
+   * @param pageHelper
+   */
+  getRecentSongs(limit = 300) {
+    return Http.request({
+      url: "record/recent/song",
+      data: {
+        limit
+      }
     });
   }
 }
