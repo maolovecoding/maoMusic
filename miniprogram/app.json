@@ -11,7 +11,8 @@
     "pages/detail-song/index",
     "pages/home-my/index",
     "pages/music-player/index",
-    "pages/love-music-detail/index"
+    "pages/love-music-detail/index",
+    "pages/login/index"
   ],
   "entryPagePath": "pages/home-music/index",
   "window": {

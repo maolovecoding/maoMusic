@@ -10,6 +10,7 @@ import QueryRect from "./query-rect";
 import Throttle from "./throttle";
 export * from "./string-to-nodes";
 import debounce from "./debounce";
+export * from "./parse-lyric";
 
 export {
   promisic,

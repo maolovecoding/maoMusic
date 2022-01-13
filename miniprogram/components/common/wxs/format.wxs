@@ -31,7 +31,7 @@ function formatDuration(duration) {
   // 分钟
   var minus = Math.floor(time / 60);
 //  秒
-  var seconds = (time % 60);
+  var seconds = Math.floor(time) % 60;
   return padStartZero(minus + "") + ":" + padStartZero(seconds + "");
 }
 

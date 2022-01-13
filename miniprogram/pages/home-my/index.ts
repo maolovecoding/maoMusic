@@ -23,6 +23,8 @@ Page({
     createdMenu: [] as any[],
     //  收藏的歌单
     keepMenu: [] as any[],
+    // 宫格区域展示的数据
+    grid:["recently","downloaded","air","bug","friend","keep","get-friend","add"],
   },
 
   /**
@@ -31,6 +33,9 @@ Page({
   onLoad() {
     this.getUserInfo();
     this.getSongDetail();
+  },
+  onShow(): void | Promise<void> {
+    this.onLoad();
   },
 
   /**

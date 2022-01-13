@@ -1,14 +1,16 @@
 <!--pages/home-my/index.wxml-->
         <!-- 头部 -->
 <view class="header">
-    <view class="more-menu">
-        <text class="top"></text>
-        <text class="center"></text>
-        <text class="bottom"></text>
-    </view>
-    <view class="search-icon">
-        <image src="../../assets/images/icons/search_my.png" mode="widthFix"/>
-    </view>
+    <!--    <view class="more-menu">-->
+    <!--        <text class="top"></text>-->
+    <!--        <text class="center"></text>-->
+    <!--        <text class="bottom"></text>-->
+    <!--    </view>-->
+    <van-icon name="wap-nav" info="99+" size="40rpx"/>
+    <van-icon name="search" size="50rpx"/>
+    <!--    <view class="search-icon">-->
+    <!--        <image src="../../assets/images/icons/search_my.png" mode="widthFix"/>-->
+    <!--    </view>-->
 </view>
 <view class="home-my">
 
@@ -37,11 +39,13 @@
         </view>
     </view>
     <!--    operation grid -->
-    <!--    <view class="grid">-->
-    <!--        <van-grid gutter="{{ 10 }}">-->
-    <!--            <van-grid-item icon="photo-o" text="文字" wx:for="{{ 8 }}"/>-->
-    <!--        </van-grid>-->
-    <!--    </view>-->
+    <view class="grid">
+        <van-grid gutter="{{ 10 }}" border="{{false}}">
+            <van-grid-item wx:for="{{ grid }}" use-slot>
+                <van-icon size="60rpx" class-prefix="my-icon" name="{{item}}" color="#d22"/>
+            </van-grid-item>
+        </van-grid>
+    </view>
     <!--  我喜欢的音乐 -->
     <view class="my-love-music">
         <view class="my-love" bindtap="loveSongClick">
