@@ -7,6 +7,7 @@
 //@ts-ignore
 import {RequestOption} from "/typings/types/index";
 import {Http} from "../http/http";
+import {PageHelper} from "./types";
 
 interface TopMVDataType {
   offset?: number;
@@ -99,15 +100,76 @@ export class Video {
   /**
    * 获取最近播放的mv
    */
-  getRecentMv(limit = 100){
+  getRecentMv(limit = 100) {
     return Http.request({
-      url:"record/recent/video",
-      data:{
+      url: "record/recent/video",
+      data: {
         limit
       }
     });
   }
+
+  /**
+   * 获取当前mv的 点赞 转发 评论数 数据
+   */
+  getMvRelatedInfo(mvid: string) {
+    return Http.request({
+      url: "mv/detail/info",
+      data: {
+        mvid
+      }
+    });
+  }
+
+  /**
+   * 获取mv的评论
+   * @param id
+   * @param pageHelper
+   */
+  getMvComments(id: string, pageHelper: PageHelper = {limit: 20, offset: 0}) {
+    return Http.request({
+      url: "comment/mv",
+      data: {
+        id,
+        ...pageHelper
+        // before:
+      }
+    });
+  }
+
+  /**
+   * 获取视频标签列表
+   */
+  getMvGroupList() {
+    return Http.request({
+      url: "video/group/list",
+    });
+  }
+
+  /**
+   * 获取视频分类列表
+   */
+  getMvCategoryList() {
+    return Http.request({
+      url: "video/category/list",
+    });
+  }
+
+  /**
+   * 获取视频标签/分类下的视频
+   * @param id 值是 标签id或者 分类id
+   * @param offset 偏移量
+   */
+  getMvGroup(id: string, offset = 0) {
+    return Http.request({
+      url: "video/group",
+      data: {
+        id, offset
+      }
+    });
+  }
 }
+
 
 /**
  * 视频请求对象可全局唯一

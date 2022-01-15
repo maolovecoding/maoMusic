@@ -28,7 +28,7 @@
     "list": [
       {
         "pagePath": "pages/home-music/index",
-        "text": "音乐",
+        "text": "发现",
         "iconPath": "assets/images/tabbar/music_normal.png",
         "selectedIconPath": "assets/images/tabbar/music_active.png"
       },

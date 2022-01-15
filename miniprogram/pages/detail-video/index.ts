@@ -21,6 +21,13 @@ Page({
   onLoad: function ({id}: Record) {
     // 获取页面数据
     this.getPageData(id);
+    // 获取mv的点赞分享评论等
+    video.getMvRelatedInfo(id).then(res=>{
+      console.log(res);
+    });
+    video.getMvComments(id).then(res => {
+      console.log(res)
+    })
   },
 
   getPageData(id: string) {

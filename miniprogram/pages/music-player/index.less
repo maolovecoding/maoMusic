@@ -127,6 +127,36 @@ page {
       }
     }
   }
+
+  .lyric-list {
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .item {
+      height: 35px;
+      line-height: 35px;
+      font-size: 28rpx;
+      text-align: center;
+      color: #989898;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .active {
+      color: #26ce8a;
+      font-size: 36rpx;
+    }
+  }
+}
+
+// 隐藏滚动条
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 }
 
 .tab-title {

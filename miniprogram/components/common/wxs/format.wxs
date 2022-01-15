@@ -48,23 +48,26 @@ function formatTime(time) {
   // 时
   var hour = date.getHours();
   // 天
-  var day = date.getDay();
+  var day = date.getDate();
   // 当前时间
   var currDate = getDate();
-  var currDay = currDate.getDay();
+  var currDay = currDate.getDate();
   var year = date.getFullYear();
   var currYear = currDate.getFullYear();
   var month = date.getMonth();
   if (currYear === year) {
+    if (currDay === day) {
+      return padStartZero(hour + "") + ":" + padStartZero(minute + "");
+    }
     if (currDay - day === 1) {
       return "昨天" + " " + padStartZero(hour + "") + ":" + padStartZero(minute + "");
     }
     if (currDay - day === 2) {
       return "前天" + " " + padStartZero(hour + "") + ":" + padStartZero(minute + "");
     }
-    return month + 1 + "月" + (day + 1) + "日";
+    return month + 1 + "月" + day + "日";
   }
-  return year + "年" + (month + 1) + "月" + (day + 1) + "日";
+  return year + "年" + (month + 1) + "月" + day + "日";
 
 }
 

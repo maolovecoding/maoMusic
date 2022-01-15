@@ -6,3 +6,6 @@
  */
 // 导航栏高度
 export const navigationBarHeight = 44;
+
+// 歌词每次滚动的高度 基数
+export const lyricScrollTop = 35;

@@ -5,7 +5,7 @@
         <!--遮罩-->
 <view class="bg-cover"></view>
 <block wx:if="{{! showWYXOrQQ }}">
-<!--    导航 nav-bar -->
+    <!--    导航 nav-bar -->
     <m-nav-bar bind:back="backUpPage">
         <view class="tab" slot="title">
             <text class="{{ currentPageIndex === 0 ? 'active' : '' }}">歌曲</text>
@@ -13,7 +13,7 @@
             <text class="{{ currentPageIndex === 1 ? 'active' : '' }}">歌词</text>
         </view>
     </m-nav-bar>
-<!--     内容 -->
+    <!--     内容 -->
     <swiper
             class="content"
             style="height: {{contentHeight}}px;"
@@ -42,16 +42,28 @@
                 <view class="duration-time">{{format.formatDuration(durationTime)}}</view>
             </view>
             <view class="operation">
-                <image class="btn btn-mode" src="../../assets/images/new-player/play_random.png" mode="widthFix"/>
+                <image bindtap="onPlayModeChange"  class="btn btn-mode" src="../../assets/images/new-player/play_{{playModeIcon}}.png" mode="widthFix"/>
                 <image class="btn btn-prev" src="../../assets/images/new-player/play_prev.png" mode="widthFix"/>
-                <image wx:if="{{ !isPaused }}" bindtap="onMusicToPause" class="btn btn-pause" src="../../assets/images/new-player/play_pause.png" mode="widthFix"/>
-                <image wx:else class="btn btn-pause" bindtap="onMusicToPlay" src="../../assets/images/new-player/player_resume.png" mode="widthFix"/>
+                <image wx:if="{{ isPlaying }}" bindtap="onMusicToPause" class="btn btn-pause"
+                       src="../../assets/images/new-player/play_pause.png" mode="widthFix"/>
+                <image wx:else class="btn btn-pause" bindtap="onMusicToPlay"
+                       src="../../assets/images/new-player/player_resume.png" mode="widthFix"/>
                 <image class="btn btn-next" src="../../assets/images/new-player/play_next.png" mode="widthFix"/>
                 <image class="btn btn-music" src="../../assets/images/new-player/play_music.png" mode="widthFix"/>
             </view>
         </swiper-item>
         <!--  歌词  -->
-        <swiper-item class="lyric">2</swiper-item>
+        <swiper-item class="lyric">
+            <scroll-view scroll-y class="lyric-list" scroll-top="{{lyricScrollTop}}" scroll-with-animation>
+                <block wx:for="{{ songLyric }}" wx:key="index">
+                    <view
+                            class="item {{currentLineLyricIndex === index ? 'active' : '' }}"
+                            style="margin-top:{{index === 0 ? contentHeight * 2 / 5  : 0 }}px;margin-bottom:{{index === songLyric.length - 1 ? contentHeight * 3 / 5  : 0 }}px;"
+                    >{{item.text}}
+                    </view>
+                </block>
+            </scroll-view>
+        </swiper-item>
     </swiper>
 
 </block>
@@ -67,12 +79,12 @@
             style="height: {{contentHeight}}px;">
         <view class="music">
             <!-- 音乐封面  -->
-            <view class="song">
+            <view class="song" wx:if="{{ isShowLyric }}">
                 <view class="outer-album">
                     <view class="album">
                         <view class="album-inner">
                             <!--  旋转的暂停 和继续  暂停时添加暂停样式  -->
-                            <image class="musicImgRotate {{isPlaying ? '' : 'pause'}}" src="{{currentSong.al.picUrl}}"
+                            <image class="musicImgRotate {{ isPaused ? 'pause' : '' }}" src="{{currentSong.al.picUrl}}"
                                    mode="aspectFill"/>
                         </view>
                     </view>
@@ -90,21 +102,25 @@
                 </view>
             </view>
             <!--  TODO 歌词  -->
-            <view class="lyric-cover" wx:if="{{ false }}">
+            <view class="lyric-cover" wx:else>
                 <view class="">音量，可以定位，z-index = 1</view>
                 <view class="lyric"></view>
                 <view class="operation"></view>
             </view>
             <!--  进度条 时长 -->
             <view class="progress">
-                <view class="current-time">01:22</view>
-                <slider block-size="{{6}}"></slider>
-                <view class="duration-time">03:56</view>
+                <view class="current-time">{{format.formatDuration(currentTime)}}</view>
+                <slider block-size="{{6}}"
+                        value="{{sliderValue}}"
+                        bindchange="onSliderChange"
+                        bindchanging="onSliderChanging"></slider>
+                <view class="duration-time">{{format.formatDuration(durationTime)}}</view>
             </view>
             <view class="operation">
                 <van-icon class-prefix="my-icon" name="random" size="60rpx"/>
                 <van-icon class-prefix="my-icon" name="prev" size="60rpx"/>
-                <van-icon class-prefix="my-icon" name="{{ isPlaying ? 'pause' : 'start' }}" size="100rpx"/>
+                <van-icon class-prefix="my-icon" bind:click="onPlayStatusChange"
+                          name="{{ !isPaused ? 'pause' : 'start' }}" size="100rpx"/>
                 <van-icon class-prefix="my-icon" name="next" size="60rpx"/>
                 <van-icon class-prefix="my-icon" name="song-menu" size="60rpx"/>
             </view>

@@ -6,12 +6,20 @@
  */
 // 模块声明
 declare module "hy-event-store" {
-  export class HYEventBus{}
-  export class HYEventStore{
-    constructor(options:any);
-    dispatch(...any);
-    onState(attribute:string,callback:(newVal:any)=>void);
-    setState(attribute:string,newValue:any);
-    offState(attribute:string,callback:(newVal:any)=>void);
+  export class HYEventBus {
+  }
+
+  export class HYEventStore {
+    constructor(options: any);
+
+    dispatch(action: string, payload?: any);
+
+    onState(attribute: string, callback: (newVal: any) => void);
+
+    onStates(attribute: string[], callback: (newVal: any) => void);
+
+    setState(attribute: string, newValue: any);
+
+    offState(attribute: string, callback: (newVal: any) => void);
   }
 }
